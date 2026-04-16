@@ -149,6 +149,9 @@
     { title: 'NeonTokenX', section: 'Products', href: 'docs/neontokenx.html#introduction', keywords: 'neontokenx tokensmp abilities tokens crafting economy premium' },
     { title: 'NeonLottery', section: 'Products', href: 'docs/neonlottery.html#introduction', keywords: 'neonlottery lottery jackpot vaults economy premium gui tickets' },
     { title: 'NeonHeads', section: 'Products', href: 'docs/neonmobs.html#introduction', keywords: 'neonheads neonmobs mob heads passive abilities premium drop' },
+    { title: 'NeonHUB-PvP', section: 'Products', href: 'docs/neonhubpvp.html#introduction', keywords: 'neonhub pvp hub combat sword magic tools loadouts free' },
+    { title: 'PvPGuard', section: 'Products', href: 'docs/pvpguard.html#introduction', keywords: 'pvpguard combatlog skript combat timer logout penalty logic punishment' },
+    { title: 'NeonShards', section: 'Products', href: 'docs/neonshards.html#introduction', keywords: 'neonshards skript shards amethyst economy min coinsengine free' },
   ];
 
   function initSearch() {
