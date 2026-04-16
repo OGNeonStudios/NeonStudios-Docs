@@ -158,6 +158,12 @@
             </svg>
             Introduction
           </a>
+          <a href="#why-killsounds" class="sidebar-link" data-section="why-killsounds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+            Why KillSounds
+          </a>
           <a href="#installation" class="sidebar-link" data-section="installation">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -240,7 +246,7 @@
         <section id="introduction">
           <h1>KillSounds</h1>
           <p>
-            <strong>A highly customizable kill sounds plugin</strong> designed to add a satisfying audible experience to PvP kills.
+            <strong>A premium, highly customizable kill sounds plugin</strong> designed to add a satisfying audible experience to PvP kills. Stand out from the generic servers with high-quality auditory feedback.
           </p>
           <p>
             KillSounds allows users to select distinct sounds via an interactive GUI when they eliminate an opponent. It features flexible database options (JSON and MySQL), PlaceholderAPI hooks, and broadcast toggles for nearby players, the killer, and the victim.
@@ -253,9 +259,43 @@
               <line x1="12" y1="8" x2="12.01" y2="8" />
             </svg>
             <div>
-              <strong>Plugin Source</strong>
-              <p>For downloads or plugin requests, visit our <a href="https://dsc.gg/neonstudios" target="_blank"
+              <strong>Premium Plugin</strong>
+              <p>KillSounds is a premium plugin carefully crafted for large and small networks alike. For purchases, downloads, or support, visit our <a href="https://dsc.gg/neonstudios" target="_blank"
                   rel="noopener">Discord server</a> or our BuiltByBit page.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Why KillSounds ===== -->
+        <section id="why-killsounds">
+          <h2>Why KillSounds?</h2>
+          <p>Investing in a premium solution means <strong>better performance, deeper customization, and continuous support</strong>. Here is why KillSounds is a must-have for any competitive or PvP-focused server:</p>
+
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0 2rem;">
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🔥</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Player Engagement</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Give players a dopamine rush when they secure a kill with engaging, customizable sound effects and visual feedback.</p>
+            </div>
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">📈</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Monetization Ready</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">With per-sound granular permissions, easily add specific kill sounds to your VIP ranks and server store.</p>
+            </div>
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">⚡</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Asynchronous Database</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Fully supports remote MySQL with asynchronous saving and loading out-of-the-box so your TPS never spikes.</p>
+            </div>
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🎮</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Interactive GUI</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Zero commands to memorize! Players pick their favorite kill sounds through a beautiful, lag-free inventory screen.</p>
             </div>
           </div>
         </section>
@@ -490,7 +530,8 @@ sounds:
     (function () {
       if (typeof window._searchDataOverride === 'undefined') {
         window._searchDataOverride = [
-          { title: 'Introduction', section: 'Getting Started', href: '#introduction', keywords: 'introduction about killsounds overview sounds gui pvp MySQL database' },
+          { title: 'Introduction', section: 'Getting Started', href: '#introduction', keywords: 'introduction about killsounds overview sounds gui pvp MySQL database premium paid' },
+          { title: 'Why KillSounds', section: 'Getting Started', href: '#why-killsounds', keywords: 'why premium monetize features engagement database' },
           { title: 'Installation', section: 'Getting Started', href: '#installation', keywords: 'install setup download jar plugins config' },
           { title: 'Commands', section: 'Usage', href: '#commands', keywords: 'commands killsounds ks pvp sounds gui' },
           { title: 'Permissions', section: 'Usage', href: '#permissions', keywords: 'permissions op sound dragon_roar wolf_growl' },
