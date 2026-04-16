@@ -144,7 +144,7 @@
     { title: 'Server Setups', section: 'Products', href: 'index.html#products', keywords: 'server setup configuration deployment' },
     { title: 'NeonSpawn', section: 'Featured Projects', href: 'index.html#featured', keywords: 'neonspawn spawn management teleport' },
     { title: 'PvPGuard', section: 'Featured Projects', href: 'index.html#featured', keywords: 'pvpguard pvp combat protection' },
-    { title: 'NeonGlows', section: 'Featured Projects', href: 'index.html#featured', keywords: 'neonglows glow effects cosmetics' },
+    { title: 'NeonGlows', section: 'Products', href: 'docs/neonglows.html#introduction', keywords: 'neonglows glow effects cosmetics' },
   ];
 
   function initSearch() {
