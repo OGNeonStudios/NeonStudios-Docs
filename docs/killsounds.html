@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KillSounds Documentation — NeonStudios</title>
+  <meta name="description"
+    content="Complete documentation for KillSounds — a custom kill sounds plugin with GUI support and PlaceholderAPI integration.">
+  <meta name="keywords" content="KillSounds, kill sounds, pvp, Minecraft, NeonStudios, placeholderapi, gui">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="KillSounds Documentation — NeonStudios">
+  <meta property="og:description"
+    content="A highly customizable kill sounds plugin for your Minecraft server.">
+  <meta property="og:url" content="https://docs.neonstudios.in/killsounds">
+  <meta property="og:site_name" content="NeonStudios">
+  <meta property="og:image" content="https://docs.neonstudios.in/assets/logo.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="NeonStudios Logo">
+  <meta name="theme-color" content="#f59e0b">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="KillSounds Documentation — NeonStudios">
+  <meta name="twitter:description"
+    content="A highly customizable kill sounds plugin for your Minecraft server.">
+  <meta name="twitter:image" content="https://docs.neonstudios.in/assets/logo.jpg">
+
+  <link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- Prism.js Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <style>
+    pre[class*="language-"],
+    code[class*="language-"] {
+      font-family: var(--font-mono) !important;
+      font-size: var(--text-sm) !important;
+      background: none !important;
+      text-shadow: none !important;
+    }
+
+    pre[class*="language-"] {
+      padding: 1.25rem 1.5rem !important;
+      margin: 0 !important;
+      overflow: auto;
+    }
+
+    .token.comment {
+      color: #6b7280 !important;
+    }
+
+    .token.string {
+      color: #a5d6ff !important;
+    }
+
+    .token.keyword {
+      color: #c084fc !important;
+    }
+
+    .token.boolean,
+    .token.number {
+      color: #f59e0b !important;
+    }
+
+    .token.property {
+      color: #67e8f9 !important;
+    }
+
+    .token.punctuation {
+      color: #9ca3af !important;
+    }
+
+    .token.selector,
+    .token.tag {
+      color: #f87171 !important;
+    }
+
+    .token.attr-name {
+      color: #818cf8 !important;
+    }
+
+    .token.attr-value {
+      color: #a5d6ff !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== Header ===== -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="NeonStudios Home">
+        <img src="../assets/logo.jpg" alt="NeonStudios Logo" style="width: 32px; height: 32px; border-radius: 6px;">
+        <span>NeonStudios</span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="../index.html" class="nav-link active">Docs</a>
+        <a href="https://dsc.gg/neonstudios" class="nav-link" target="_blank" rel="noopener">Community</a>
+      </nav>
+
+      <button class="nav-cta" id="searchTrigger" onclick="openSearch()" style="cursor:pointer;">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          style="margin-right:6px;">
+          <circle cx="7" cy="7" r="5" />
+          <line x1="11" y1="11" x2="13" y2="13" />
+        </svg>
+        Search
+        <kbd style="margin-left:8px;">Ctrl+K</kbd>
+      </button>
+
+      <button class="mobile-menu-btn" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Search Overlay ===== -->
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search documentation">
+    <div class="search-modal">
+      <input type="text" class="search-modal-input" id="searchInput" placeholder="Search KillSounds documentation..."
+        autocomplete="off">
+      <div class="search-results" id="searchResults">
+        <div class="search-empty">Type to search the documentation...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Sidebar Overlay (mobile) ===== -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== Docs Layout ===== -->
+  <div class="docs-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Documentation navigation">
+      <div class="sidebar-search">
+        <div class="sidebar-search-wrapper">
+          <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" placeholder="Search docs..." id="sidebarSearchInput" aria-label="Search documentation"
+            onclick="openSearch()">
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Getting Started</div>
+          <a href="#introduction" class="sidebar-link active" data-section="introduction">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            Introduction
+          </a>
+          <a href="#installation" class="sidebar-link" data-section="installation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Installation
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Usage</div>
+          <a href="#commands" class="sidebar-link" data-section="commands">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="4 17 10 11 4 5" />
+              <line x1="12" y1="19" x2="20" y2="19" />
+            </svg>
+            Commands
+          </a>
+          <a href="#permissions" class="sidebar-link" data-section="permissions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            Permissions
+          </a>
+          <a href="#placeholderapi" class="sidebar-link" data-section="placeholderapi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            PlaceholderAPI
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Configuration</div>
+          <a href="#settings" class="sidebar-link" data-section="settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+            Settings
+          </a>
+          <a href="#sound-list" class="sidebar-link" data-section="sound-list">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            Sound List
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Support</div>
+          <a href="#support" class="sidebar-link" data-section="support">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            Support
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main" id="docsMain" role="main">
+      <div class="docs-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Docs Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current">KillSounds</span>
+        </nav>
+
+        <!-- ===== Introduction ===== -->
+        <section id="introduction">
+          <h1>KillSounds</h1>
+          <p>
+            <strong>A highly customizable kill sounds plugin</strong> designed to add a satisfying audible experience to PvP kills.
+          </p>
+          <p>
+            KillSounds allows users to select distinct sounds via an interactive GUI when they eliminate an opponent. It features flexible database options (JSON and MySQL), PlaceholderAPI hooks, and broadcast toggles for nearby players, the killer, and the victim.
+          </p>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            <div>
+              <strong>Plugin Source</strong>
+              <p>For downloads or plugin requests, visit our <a href="https://dsc.gg/neonstudios" target="_blank"
+                  rel="noopener">Discord server</a> or our BuiltByBit page.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Installation ===== -->
+        <section id="installation">
+          <h2>Installation</h2>
+          <p>Setting up KillSounds is very easy.</p>
+
+          <ol>
+            <li><strong>Download</strong> the latest <code>KillSounds.jar</code> file from the official NeonStudios
+              release channel.</li>
+            <li><strong>Place</strong> the `.jar` inside your server's <code>/plugins</code> directory.</li>
+            <li><strong>Optional:</strong> Install <code>PlaceholderAPI</code> for tag and placeholder support.</li>
+            <li><strong>Restart</strong> your server completely.</li>
+            <li><strong>Modify</strong> the <code>config.yml</code> file to match your desired settings and storage type.</li>
+          </ol>
+        </section>
+
+        <!-- ===== Commands ===== -->
+        <section id="commands">
+          <h2>Commands</h2>
+          <p>KillSounds employs a straightforward command to launch the GUI.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Aliased as</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/killsounds</code></td>
+                <td>Opens the interactive kill sounds selection menu</td>
+                <td><code>/ks</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ===== Permissions ===== -->
+        <section id="permissions">
+          <h2>Permissions</h2>
+          <p>Restrict or grant sounds individually using your permission plugin (e.g., LuckPerms).</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>killsounds.use</code></td>
+                <td>Allows opening the KillSounds GUI (Granted by default).</td>
+              </tr>
+              <tr>
+                <td><code>killsounds.admin</code></td>
+                <td>Allows access to admin/reload commands (Granted to OP).</td>
+              </tr>
+              <tr>
+                <td><code>killsounds.sound.*</code></td>
+                <td>Grants access to <strong>all</strong> kill sounds (Granted to OP).</td>
+              </tr>
+              <tr>
+                <td><code>killsounds.sound.&lt;sound_id&gt;</code></td>
+                <td>Grants access to a specific sound. (Example: <code>killsounds.sound.dragon_roar</code> or <code>killsounds.sound.wither_spawn</code>).</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ===== PlaceholderAPI ===== -->
+        <section id="placeholderapi">
+          <h2>PlaceholderAPI</h2>
+          <p>KillSounds optionally hooks into PlaceholderAPI to display tags or the current selected sound.</p>
+          <p>Ensure that PlaceholderAPI is installed on your server. Refer to our discord for more integrated placeholder values.</p>
+        </section>
+
+        <!-- ===== Settings ===== -->
+        <section id="settings">
+          <h2>Settings Configuration</h2>
+          <p>Configure storage formats and sound audibility.</p>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — config.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">storage:
+  type: JSON # Change to MySQL to use external database
+  mysql:
+    host: localhost
+    port: 3306
+    database: killsounds
+    username: root
+    password: password
+    ssl: false
+
+sounds:
+  distance: 30 # Tweak range for nearby players
+  volume: 1.0
+  pitch: 1.0
+  play-to-killer: true
+  play-to-victim: true
+  play-to-nearby: true</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== Sound List ===== -->
+        <section id="sound-list">
+          <h2>Configuring Custom Sounds</h2>
+
+          <p>You can add, tweak, or limit the volume, pitch, item icon, and more for each sound within the GUI menu directly from the <code>config.yml</code> under <code>sound-list</code>.</p>
+          
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">sound-list:
+  dragon_roar:
+    enabled: true
+    sound: ENTITY_ENDER_DRAGON_GROWL
+    display-name: '&5&lDragon Roar'
+    lore:
+      - '&7A mighty dragon roar'
+      - '&7that strikes fear!'
+      - ''
+      - '&e{status}'
+    slot: 10
+    permission: killsounds.sound.dragon_roar
+    item: DRAGON_HEAD
+    volume: 1.0
+    pitch: 1.0</code></pre>
+          </div>
+          
+          <p><strong>Available Supported Sounds:</strong></p>
+          <ul>
+            <li><code>dragon_roar</code></li>
+            <li><code>wolf_growl</code></li>
+            <li><code>cat_meow</code></li>
+            <li><code>villager_death</code></li>
+            <li><code>wither_spawn</code></li>
+            <li><code>enderman_teleport</code></li>
+            <li><code>blaze_hurt</code></li>
+            <li><code>ghast_scream</code></li>
+            <li><code>lightning</code></li>
+            <li><code>explosion</code></li>
+            <li><code>anvil_land</code></li>
+            <li><code>level_up</code></li>
+            <li><code>orb_pickup</code></li>
+            <li><code>firework</code></li>
+            <li><code>totem</code></li>
+            <li><code>bell</code></li>
+            <li><code>raid_horn</code></li>
+          </ul>
+        </section>
+
+        <!-- ===== Support ===== -->
+        <section id="support">
+          <h2>Support</h2>
+          <div
+            style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;text-align:center;margin:1.5rem 0;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-hover)"
+              stroke-width="1.5" style="margin-bottom:1rem;">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            <h3 style="margin-bottom:0.5rem;color:var(--text-primary);">Join Our Discord</h3>
+            <p style="color:var(--text-muted);margin-bottom:1.25rem;font-size:0.9rem;">Get help from our team, report
+              bugs, request features, and connect with the community.</p>
+            <a href="https://dsc.gg/neonstudios" class="btn btn-primary" target="_blank" rel="noopener">
+              dsc.gg/neonstudios
+            </a>
+          </div>
+        </section>
+
+        <!-- Page navigation -->
+        <div
+          style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+          <a href="../index.html" class="btn btn-secondary" style="font-size:0.875rem;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg>
+            All Documentation
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">NeonStudios</span>
+        <span class="footer-copy">&copy; 2024 NeonStudios. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html" class="footer-link">Home</a>
+        <a href="https://dsc.gg/neonstudios" class="footer-link" target="_blank" rel="noopener">
+          Discord
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Prism.js for syntax highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="../app.js"></script>
+  <script>
+    // KillSounds-specific search data override with updated relative paths
+    (function () {
+      if (typeof window._searchDataOverride === 'undefined') {
+        window._searchDataOverride = [
+          { title: 'Introduction', section: 'Getting Started', href: '#introduction', keywords: 'introduction about killsounds overview sounds gui pvp MySQL database' },
+          { title: 'Installation', section: 'Getting Started', href: '#installation', keywords: 'install setup download jar plugins config' },
+          { title: 'Commands', section: 'Usage', href: '#commands', keywords: 'commands killsounds ks pvp sounds gui' },
+          { title: 'Permissions', section: 'Usage', href: '#permissions', keywords: 'permissions op sound dragon_roar wolf_growl' },
+          { title: 'PlaceholderAPI', section: 'Usage', href: '#placeholderapi', keywords: 'placeholder placeholderapi' },
+          { title: 'Settings Configuration', section: 'Configuration', href: '#settings', keywords: 'config yml database json mysql volume distance nearby' },
+          { title: 'Sound List', section: 'Configuration', href: '#sound-list', keywords: 'sounds list entity_ender_dragon_growl slot item volume pitch' },
+          { title: 'Support', section: 'Support', href: '#support', keywords: 'support help discord contact' },
+        ];
+      }
+    })();
+  </script>
+</body>
+
+</html>

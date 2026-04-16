@@ -143,7 +143,7 @@
     { title: 'Skripts', section: 'Products', href: 'index.html#products', keywords: 'skript scripts automation custom mechanics' },
     { title: 'Server Setups', section: 'Products', href: 'index.html#products', keywords: 'server setup configuration deployment' },
     { title: 'NeonSpawn', section: 'Products', href: 'docs/neonspawn.html#introduction', keywords: 'neonspawn spawn management teleport' },
-    { title: 'PvPGuard', section: 'Featured Projects', href: 'index.html#featured', keywords: 'pvpguard pvp combat protection' },
+    { title: 'KillSounds', section: 'Products', href: 'docs/killsounds.html#introduction', keywords: 'killsounds pvp combat sounds gui' },
     { title: 'NeonGlows', section: 'Products', href: 'docs/neonglows.html#introduction', keywords: 'neonglows glow effects cosmetics' },
   ];
 
