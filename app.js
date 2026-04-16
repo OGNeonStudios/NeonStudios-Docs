@@ -147,6 +147,7 @@
     { title: 'NeonGlows', section: 'Products', href: 'docs/neonglows.html#introduction', keywords: 'neonglows glow effects cosmetics' },
     { title: 'NeonClans', section: 'Products', href: 'docs/neonclans.html#introduction', keywords: 'neonclans clans alliances treasury pvp premium' },
     { title: 'NeonTokenX', section: 'Products', href: 'docs/neontokenx.html#introduction', keywords: 'neontokenx tokensmp abilities tokens crafting economy premium' },
+    { title: 'NeonLottery', section: 'Products', href: 'docs/neonlottery.html#introduction', keywords: 'neonlottery lottery jackpot vaults economy premium gui tickets' },
   ];
 
   function initSearch() {

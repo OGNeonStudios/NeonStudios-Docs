@@ -255,7 +255,7 @@ ul, ol {
   background: var(--color-primary-muted);
 }
 
-.nav-cta {
+.nav-cta-btn {
   margin-left: var(--space-4);
   padding: var(--space-2) var(--space-5);
   font-size: var(--text-sm);
@@ -266,13 +266,60 @@ ul, ol {
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all var(--transition-fast);
+  text-decoration: none;
 }
 
-.nav-cta:hover {
+.nav-cta-btn:hover {
   background: var(--color-primary-hover);
   color: #fff;
   transform: translateY(-1px);
   box-shadow: 0 4px 16px var(--color-primary-glow);
+}
+
+.nav-cta {
+  margin-left: var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-fast);
+}
+
+.nav-cta svg {
+  color: var(--text-dim);
+  transition: color var(--transition-fast);
+}
+
+.nav-cta kbd {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  transition: color var(--transition-fast);
+}
+
+.nav-cta:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+  border-color: var(--border-color-subtle);
+}
+
+.nav-cta:hover svg {
+  color: var(--text-primary);
+}
+
+.nav-cta:hover kbd {
+  color: var(--text-secondary);
+  border-color: var(--border-color-subtle);
 }
 
 .mobile-menu-btn {
