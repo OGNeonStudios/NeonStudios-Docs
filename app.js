@@ -145,6 +145,7 @@
     { title: 'NeonSpawn', section: 'Products', href: 'docs/neonspawn.html#introduction', keywords: 'neonspawn spawn management teleport' },
     { title: 'KillSounds', section: 'Products', href: 'docs/killsounds.html#introduction', keywords: 'killsounds pvp combat sounds gui' },
     { title: 'NeonGlows', section: 'Products', href: 'docs/neonglows.html#introduction', keywords: 'neonglows glow effects cosmetics' },
+    { title: 'NeonClans', section: 'Products', href: 'docs/neonclans.html#introduction', keywords: 'neonclans clans alliances treasury pvp premium' },
   ];
 
   function initSearch() {
