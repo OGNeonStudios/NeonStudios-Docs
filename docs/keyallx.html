@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyAllX Documentation — NeonStudios</title>
+  <meta name="description" content="Complete documentation for KeyAllX — a premium timed reward distribution system designed to increase player engagement, retention, and server activity.">
+  <meta name="keywords" content="KeyAllX, keyall plugin, Minecraft, timed rewards, NeonStudios, crate keys">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="KeyAllX Documentation — NeonStudios">
+  <meta property="og:description" content="A premium timed reward distribution system designed to increase player engagement, retention, and server activity.">
+  <meta property="og:url" content="https://docs.neonstudios.in/keyallx">
+  <meta property="og:site_name" content="NeonStudios">
+
+  <link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- Prism.js Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <style>
+    pre[class*="language-"],
+    code[class*="language-"] {
+      font-family: var(--font-mono) !important;
+      font-size: var(--text-sm) !important;
+      background: none !important;
+      text-shadow: none !important;
+    }
+    pre[class*="language-"] {
+      padding: 1.25rem 1.5rem !important;
+      margin: 0 !important;
+      overflow: auto;
+    }
+    .token.comment { color: #6b7280 !important; }
+    .token.string { color: #a5d6ff !important; }
+    .token.keyword { color: #c084fc !important; }
+    .token.boolean, .token.number { color: #f59e0b !important; }
+    .token.property { color: #67e8f9 !important; }
+    .token.punctuation { color: #9ca3af !important; }
+    .token.selector, .token.tag { color: #f87171 !important; }
+    .token.attr-name { color: #818cf8 !important; }
+    .token.attr-value { color: #a5d6ff !important; }
+  </style>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="NeonStudios Home">
+        <img src="../assets/logo.jpg" alt="NeonStudios Logo" style="width: 32px; height: 32px; border-radius: 6px;">
+        <span>NeonStudios</span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="../index.html" class="nav-link active">Docs</a>
+        <a href="https://dsc.gg/neonstudios" class="nav-link" target="_blank" rel="noopener">Community</a>
+      </nav>
+
+      <button class="nav-cta" id="searchTrigger" onclick="openSearch()" style="cursor:pointer;">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="margin-right:6px;"><circle cx="7" cy="7" r="5"/><line x1="11" y1="11" x2="13" y2="13"/></svg>
+        Search
+        <kbd style="margin-left:8px;">Ctrl+K</kbd>
+      </button>
+
+      <button class="mobile-menu-btn" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Search Overlay ===== -->
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search documentation">
+    <div class="search-modal">
+      <input type="text" class="search-modal-input" id="searchInput" placeholder="Search KeyAllX documentation..." autocomplete="off">
+      <div class="search-results" id="searchResults">
+        <div class="search-empty">Type to search the documentation...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Sidebar Overlay (mobile) ===== -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== Docs Layout ===== -->
+  <div class="docs-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Documentation navigation">
+      <div class="sidebar-search">
+        <div class="sidebar-search-wrapper">
+          <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search docs..." id="sidebarSearchInput" aria-label="Search documentation" onclick="openSearch()">
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Getting Started</div>
+          <a href="#introduction" class="sidebar-link active" data-section="introduction">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Introduction
+          </a>
+          <a href="#why-keyallx" class="sidebar-link" data-section="why-keyallx">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Why KeyAllX
+          </a>
+          <a href="#installation" class="sidebar-link" data-section="installation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Installation
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Usage</div>
+          <a href="#commands" class="sidebar-link" data-section="commands">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            Commands
+          </a>
+          <a href="#permissions" class="sidebar-link" data-section="permissions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Permissions
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Configuration</div>
+          <a href="#configuration" class="sidebar-link" data-section="configuration">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Configuration
+          </a>
+          <a href="#timer-system" class="sidebar-link" data-section="timer-system">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Timer System
+          </a>
+          <a href="#rewards" class="sidebar-link" data-section="rewards">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            Rewards
+          </a>
+          <a href="#messages-visuals" class="sidebar-link" data-section="messages-visuals">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Messages & Visuals
+          </a>
+          <a href="#reminder-system" class="sidebar-link" data-section="reminder-system">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            Reminder System
+          </a>
+          <a href="#restrictions" class="sidebar-link" data-section="restrictions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Restrictions
+          </a>
+          <a href="#discord-integration" class="sidebar-link" data-section="discord-integration">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Discord Integration
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Advanced</div>
+          <a href="#placeholderapi" class="sidebar-link" data-section="placeholderapi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            PlaceholderAPI
+          </a>
+          <a href="#features" class="sidebar-link" data-section="features">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Features
+          </a>
+          <a href="#use-cases" class="sidebar-link" data-section="use-cases">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Use Cases
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Support</div>
+          <a href="#troubleshooting" class="sidebar-link" data-section="troubleshooting">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Troubleshooting
+          </a>
+          <a href="#faq" class="sidebar-link" data-section="faq">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            FAQ
+          </a>
+          <a href="#support" class="sidebar-link" data-section="support">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Support
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main" id="docsMain" role="main">
+      <div class="docs-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Docs Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current">KeyAllX</span>
+        </nav>
+
+        <!-- ===== Introduction ===== -->
+        <section id="introduction">
+          <h1>KeyAllX</h1>
+          <p>
+            <strong>A premium timed reward distribution system</strong> designed to increase player engagement, 
+            retention, and server activity.
+          </p>
+          <p>
+            KeyAllX automates crate key distribution using a powerful timer engine, advanced reminder system, 
+            and full customization — giving you complete control over how and when rewards are delivered. Built using optimized practices, version 1.8 handles timed events effortlessly.
+          </p>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div>
+              <strong>Premium Plugin</strong>
+              <p>KeyAllX is a premium offering from NeonStudios. For licensing or purchase info, visit our <a href="https://dsc.gg/neonstudios" target="_blank" rel="noopener">Discord server</a>.</p>
+            </div>
+          </div>
+
+          <h3>Ideal For</h3>
+          <ul>
+            <li><strong>Survival / SMP servers</strong> — Keep players returning with predictable reward cycles.</li>
+            <li><strong>OP / Prison servers</strong> — Automated key distribution for crate-based economies.</li>
+            <li><strong>Event-based servers</strong> — Tie rewards to timed events for maximum impact.</li>
+            <li><strong>Growing communities</strong> — Increase engagement and drive online time.</li>
+          </ul>
+        </section>
+
+        <!-- ===== Why KeyAllX ===== -->
+        <section id="why-keyallx">
+          <h2>Why KeyAllX</h2>
+          <p>Most keyall plugins simply give rewards. KeyAllX is built to <strong>engineer player behavior and engagement</strong>.</p>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0 2rem;">
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">📈</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Designed for Retention</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Create predictable reward cycles that bring players online consistently.</p>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🔔</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Built-In Hype System</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Multi-stage reminders build anticipation before rewards.</p>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">⚙️</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Fully Configurable</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Every system is controlled via config — no hard limits.</p>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">📊</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">PlaceholderAPI Ready</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Integrates with scoreboards, GUIs, and chat systems.</p>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🧠</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Scalable</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Works for small servers and large networks alike.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Installation ===== -->
+        <section id="installation">
+          <h2>Installation</h2>
+          <p>Setting up KeyAllX is straightforward. Follow these steps to get started.</p>
+
+          <ol>
+            <li><strong>Download</strong> the latest <code>KeyAllX.jar</code> from our releases or Discord.</li>
+            <li><strong>Place</strong> the <code>.jar</code> file into your server's <code>/plugins</code> directory.</li>
+            <li><strong>Start or restart</strong> your server (do not use <code>/reload</code>).</li>
+            <li><strong>Configure</strong> the generated <code>config.yml</code> at <code>plugins/KeyAllX/config.yml</code>.</li>
+            <li><strong>Apply changes</strong> by running:</li>
+          </ol>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">Console</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-bash">/keyallx reload</code></pre>
+          </div>
+
+          <div class="callout callout-warning">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+              <strong>License Required</strong>
+              <p>KeyAllX requires a valid license key in <code>config.yml</code> to activate. Ensure your <code>license-key</code> field is set correctly before reloading.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Commands ===== -->
+        <section id="commands">
+          <h2>Commands</h2>
+          <p>KeyAllX provides a minimal, focused set of commands for management.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Permission</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/keyallx reload</code></td>
+                <td>Reload plugin configuration</td>
+                <td><code>keyallx.reload</code></td>
+              </tr>
+              <tr>
+                <td><code>/reset-timer</code></td>
+                <td>Reset the keyall timer</td>
+                <td><code>keyallx.keyallx.manipulate_timer</code></td>
+              </tr>
+              <tr>
+                <td><code>/stop-timer</code></td>
+                <td>Stop the keyall timer</td>
+                <td><code>keyallx.manipulate_timer</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Usage Examples</h3>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">Commands</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-bash"># Reload configuration after changes
+/keyallx reload
+
+# Reset the timer back to full duration
+/reset-timer
+
+# Stop the timer entirely
+/stop-timer</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== Permissions ===== -->
+        <section id="permissions">
+          <h2>Permissions</h2>
+          <p>KeyAllX uses granular permissions for administrative control.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Description</th>
+                <th>Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>keyallx.reload</code></td>
+                <td>Allows plugin reload via <code>/keyallx reload</code></td>
+                <td>op</td>
+              </tr>
+              <tr>
+                <td><code>keyallx.keyallx.manipulate_timer</code></td>
+                <td>Allows resetting the timer via <code>/reset-timer</code></td>
+                <td>op</td>
+              </tr>
+              <tr>
+                <td><code>keyallx.manipulate_timer</code></td>
+                <td>Allows stopping the timer via <code>/stop-timer</code></td>
+                <td>op</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div>
+              <strong>Tip</strong>
+              <p>Use a permissions plugin like <strong>LuckPerms</strong> to assign these to your admin or staff groups. Regular players do not need any permissions — rewards are distributed automatically.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Configuration ===== -->
+        <section id="configuration">
+          <h2>Configuration</h2>
+          <p>All KeyAllX behavior is controlled through <code>config.yml</code>. Below is a breakdown of every configuration section.</p>
+
+          <h3>Core Settings</h3>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — config.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">license-key: "LICENSE-KEY-123456"
+debug: false
+bStats: true</code></pre>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>license-key</code></td>
+                <td>string</td>
+                <td>Your license key — required to activate the plugin</td>
+              </tr>
+              <tr>
+                <td><code>debug</code></td>
+                <td>boolean</td>
+                <td>Enables verbose debug logging to console</td>
+              </tr>
+              <tr>
+                <td><code>bStats</code></td>
+                <td>boolean</td>
+                <td>Enables anonymous usage statistics via bStats</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ===== Timer System ===== -->
+        <section id="timer-system">
+          <h2>Timer System</h2>
+          <p>The timer engine is the core of KeyAllX. It controls when rewards are automatically distributed.</p>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">timeInterval: 300
+autoStart: true</code></pre>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>timeInterval</code></td>
+                <td>integer</td>
+                <td>300</td>
+                <td>Time between keyall events, in seconds</td>
+              </tr>
+              <tr>
+                <td><code>autoStart</code></td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>Automatically start the timer when the server boots</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout callout-success">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <div>
+              <strong>Example</strong>
+              <p><code>300</code> = 5 minutes · <code>600</code> = 10 minutes · <code>1800</code> = 30 minutes · <code>3600</code> = 1 hour</p>
+            </div>
+          </div>
+
+          <h3>Timer Controls</h3>
+          <ul>
+            <li><code>/reset-timer</code> — Resets the countdown back to the configured <code>timeInterval</code>.</li>
+            <li><code>/stop-timer</code> — Completely stops the timer until the server restarts (if <code>autoStart</code> is enabled) or until reset manually.</li>
+          </ul>
+        </section>
+
+        <!-- ===== Rewards ===== -->
+        <section id="rewards">
+          <h2>Rewards</h2>
+          <p>Define what happens when the keyall event triggers. KeyAllX supports both global and per-player command execution.</p>
+
+          <h3>Global Commands</h3>
+          <p>These commands execute <strong>once</strong> from the console when a keyall triggers:</p>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">command:
+  - "crate key giveall key 1 -s"
+  - "broadcast &6[KeyAllX] &aAll players received a key!"</code></pre>
+          </div>
+
+          <h3>Per-Player Commands</h3>
+          <p>These commands execute <strong>once for each online player</strong>. Use <code>{player}</code> as a placeholder for the player's name.</p>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">perPlayerCommand:
+  - "give {player} diamond 5"
+  - "eco give {player} 500"</code></pre>
+          </div>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div>
+              <strong>Tip</strong>
+              <p>You can use any server command here — including commands from other plugins like <strong>ExcellentCrates</strong>, <strong>CrazyCrates</strong>, or <strong>MythicMobs</strong>.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Messages & Visuals ===== -->
+        <section id="messages-visuals">
+          <h2>Messages &amp; Visuals</h2>
+          <p>KeyAllX provides rich visual feedback when rewards are distributed. All messages support standard Minecraft color codes (&a, &e) and hex colors.</p>
+
+          <h3>Title Display</h3>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">title-message: "&a&lCONGRATULATIONS!"
+subtitle-message: "&7You've received a free key from KeyAll event!"
+title-fade-in: 10
+title-stay: 70
+title-fade-out: 20</code></pre>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>title-message</code></td>
+                <td>Large text displayed on screen</td>
+              </tr>
+              <tr>
+                <td><code>subtitle-message</code></td>
+                <td>Smaller text below the title</td>
+              </tr>
+              <tr>
+                <td><code>title-fade-in</code></td>
+                <td>Fade-in duration (ticks, 20 ticks = 1 second)</td>
+              </tr>
+              <tr>
+                <td><code>title-stay</code></td>
+                <td>Duration the title stays on screen (ticks)</td>
+              </tr>
+              <tr>
+                <td><code>title-fade-out</code></td>
+                <td>Fade-out duration (ticks)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Broadcast Message</h3>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">message:
+  - "&6&lKEYALL EVENT COMPLETED"
+  - "&a✓ &7All online players have been awarded a free key!"</code></pre>
+          </div>
+
+          <h3>Sound Effect</h3>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">sound: "ENTITY_PLAYER_LEVELUP"
+volume: 1.0
+pitch: 1.2</code></pre>
+          </div>
+
+          <h3>Hotbar / Action Bar</h3>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">hotbar-message: "&6✨ &aFree key awarded! &6✨"</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== Reminder System ===== -->
+        <section id="reminder-system">
+          <h2>Reminder System</h2>
+          <p>The built-in reminder system lets you send timed notifications before each keyall event, building anticipation and driving engagement. Support for sounds, titles, chat, and action bar per stage.</p>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">reminders:
+  300: # 5 minutes warning
+    message: '&6[KeyAllX] &eKeyAll event starting in &c5 minutes&e!'
+    hotbar: '&6⏰ KeyAll in 5 minutes!'
+    sound: BLOCK_NOTE_BLOCK_BELL
+    volume: 0.7
+    pitch: 1.0
+
+  10: # 10 seconds countdown
+    title: '&6&lKEYALL EVENT'
+    subtitle: '&eStarting in &c&l10 seconds'
+    fadeIn: 5
+    stay: 30
+    fadeOut: 5
+    sound: UI_BUTTON_CLICK
+    volume: 1.0
+    pitch: 2.0</code></pre>
+          </div>
+
+          <p>Each key in the <code>reminders</code> map represents the number of <strong>seconds before the event</strong>. The components are optional—use only what you want to show.</p>
+
+          <div class="callout callout-success">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <div>
+              <strong>Pro Tip</strong>
+              <p>Use a multi-stage countdown (10s, 5-4-3-2-1) with escalating pitch for maximum hype. E.g. at 3s Pitch=1.2, 2s Pitch=1.5, 1s Pitch=2.0.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Restrictions ===== -->
+        <section id="restrictions">
+          <h2>Restrictions</h2>
+          <p>KeyAllX supports several restriction types to control when and where events can trigger.</p>
+
+          <h3>Player Requirements</h3>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">minimumPlayers: 1</code></pre>
+          </div>
+
+          <p>The event will only trigger if the number of online players meets or exceeds this threshold.</p>
+
+          <h3>Time, Day &amp; World Restrictions</h3>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml"># Restrict to specific time windows (24h format)
+timeRestrictions:
+  - "09:00-12:00"
+  - "18:00-22:00"
+
+# Restrict to specific days of the week
+allowedDays:
+  - "FRIDAY"
+  - "SATURDAY"
+  - "SUNDAY"
+
+# Restrict to specific worlds
+allowedWorlds:
+  - "world"
+  - "world_nether"
+
+# Require a permission to receive rewards
+requiredPermission: "keyallx.receive"</code></pre>
+          </div>
+
+          <p>Leave arrays empty (<code>[]</code>) to disable that restriction. When a restriction is set, the event will only trigger if all conditions are met.</p>
+        </section>
+
+        <!-- ===== Discord Integration ===== -->
+        <section id="discord-integration">
+          <h2>Discord Integration</h2>
+          <p>KeyAllX can send an automated webhook to your Discord server whenever a keyall event completes.</p>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">discordWebhook: "https://discord.com/api/webhooks/your-webhook-url"
+discordMessage: "🎁 **KeyAll Event Completed!** 🎁\n{playerCount} players received free keys!"</code></pre>
+          </div>
+
+          <h3>Setup Steps</h3>
+          <ol>
+            <li>Open your Discord server settings.</li>
+            <li>Go to <strong>Integrations → Webhooks</strong>.</li>
+            <li>Click <strong>New Webhook</strong> and copy the webhook URL.</li>
+            <li>Paste the URL into <code>discordWebhook</code> in your config.</li>
+            <li>Customize the <code>discordMessage</code> (use <code>{playerCount}</code> for online players).</li>
+            <li>Run <code>/keyallx reload</code>.</li>
+          </ol>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div>
+              <strong>Note</strong>
+              <p>Leave <code>discordWebhook: ""</code> empty to disable Discord notifications entirely.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== PlaceholderAPI ===== -->
+        <section id="placeholderapi">
+          <h2>PlaceholderAPI</h2>
+          <p>KeyAllX natively integrates with <a href="https://www.spigotmc.org/resources/placeholderapi.6245/" target="_blank" rel="noopener">PlaceholderAPI</a> to expose accurate, real-time timer stats.</p>
+
+          <h3>Available Placeholders</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Placeholder</th>
+                <th>Description</th>
+                <th>Example Output</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>%keyallx_timer%</code></td>
+                <td>Smart formatted full remaining time</td>
+                <td><code>04:32</code> or <code>1:02:30</code></td>
+              </tr>
+              <tr>
+                <td><code>%keyallx_days%</code></td>
+                <td>Remaining days</td>
+                <td><code>0</code></td>
+              </tr>
+              <tr>
+                <td><code>%keyallx_hours%</code></td>
+                <td>Remaining hours</td>
+                <td><code>1</code></td>
+              </tr>
+              <tr>
+                <td><code>%keyallx_mins%</code></td>
+                <td>Remaining minutes</td>
+                <td><code>2</code></td>
+              </tr>
+              <tr>
+                <td><code>%keyallx_secs%</code></td>
+                <td>Remaining seconds component</td>
+                <td><code>30</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Usage Example — Scoreboard</h3>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — Scoreboard Config</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml"># Example with TAB or FeatherBoard
+scoreboard:
+  lines:
+    - "&6⏱ Next KeyAll: &f%keyallx_timer%"</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== Features ===== -->
+        <section id="features">
+          <h2>Features</h2>
+          <p>A comprehensive overview of everything KeyAllX offers.</p>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0 2rem;">
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.5rem;">
+              <h4 style="margin:0 0 0.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="font-size:1.25rem;">⏱️</span> Timer Engine</h4>
+              <ul style="margin:0;padding-left:1.25rem;">
+                <li style="font-size:0.85rem;">Automated reward distribution</li>
+                <li style="font-size:0.85rem;">Reset / stop controls</li>
+                <li style="font-size:0.85rem;">Auto-start on boot</li>
+              </ul>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.5rem;">
+              <h4 style="margin:0 0 0.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="font-size:1.25rem;">🔔</span> Reminder System</h4>
+              <ul style="margin:0;padding-left:1.25rem;">
+                <li style="font-size:0.85rem;">Multi-stage countdown</li>
+                <li style="font-size:0.85rem;">Engagement-focused notifications</li>
+                <li style="font-size:0.85rem;">Fully customizable timing</li>
+              </ul>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.5rem;">
+              <h4 style="margin:0 0 0.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="font-size:1.25rem;">📊</span> PlaceholderAPI</h4>
+              <ul style="margin:0;padding-left:1.25rem;">
+                <li style="font-size:0.85rem;">Real-time timer data</li>
+                <li style="font-size:0.85rem;">Scoreboard integration</li>
+                <li style="font-size:0.85rem;">Chat & GUI compatible</li>
+              </ul>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.5rem;">
+              <h4 style="margin:0 0 0.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="font-size:1.25rem;">🎨</span> Visual Feedback</h4>
+              <ul style="margin:0;padding-left:1.25rem;">
+                <li style="font-size:0.85rem;">Titles & subtitles</li>
+                <li style="font-size:0.85rem;">Sounds & action bar</li>
+                <li style="font-size:0.85rem;">Broadcast messages</li>
+              </ul>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.5rem;">
+              <h4 style="margin:0 0 0.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="font-size:1.25rem;">🧠</span> Performance</h4>
+              <ul style="margin:0;padding-left:1.25rem;">
+                <li style="font-size:0.85rem;">Lightweight & efficient</li>
+                <li style="font-size:0.85rem;">Minimal TPS impact</li>
+                <li style="font-size:0.85rem;">Network-ready</li>
+              </ul>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.5rem;">
+              <h4 style="margin:0 0 0.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="font-size:1.25rem;">🔗</span> Discord Webhooks</h4>
+              <ul style="margin:0;padding-left:1.25rem;">
+                <li style="font-size:0.85rem;">Event notifications</li>
+                <li style="font-size:0.85rem;">Custom messages</li>
+                <li style="font-size:0.85rem;">Easy setup</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Use Cases ===== -->
+        <section id="use-cases">
+          <h2>Use Cases</h2>
+
+          <h3>📈 Retention Boost</h3>
+          <p>Keep players online during reward cycles. By setting a predictable <code>timeInterval</code>, players learn when rewards are coming and stay logged in. Combine with reminders for maximum effect.</p>
+
+          <h3>🔥 Activity Spikes</h3>
+          <p>Use the multi-stage reminder system to bring players back at peak times. A 5-minute, 1-minute, and 10-second countdown creates urgency and drives players to re-join before the event fires.</p>
+
+          <h3>🎮 Event Integration</h3>
+          <p>Combine KeyAllX with server events — use <code>timeRestrictions</code> and <code>allowedDays</code> to create weekend-only keyalls, or special event windows that amplify your server's activities.</p>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — Example: Weekend Only</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml"># Only run keyalls on weekends between 2pm and 10pm
+allowedDays:
+  - "SATURDAY"
+  - "SUNDAY"
+timeRestrictions:
+  - "14:00-22:00"</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== Troubleshooting ===== -->
+        <section id="troubleshooting">
+          <h2>Troubleshooting</h2>
+          <p>Common issues and how to resolve them.</p>
+
+          <h3>Commands not working</h3>
+          <div class="callout callout-error">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <div>
+              <strong>"/keyallx" or "/reset-timer" not recognized</strong>
+              <p>Ensure the plugin loaded successfully by checking your console for <code>[KeyAllX]</code> messages at startup. Verify permissions are assigned correctly. Try <code>/keyallx reload</code> to re-initialize.</p>
+            </div>
+          </div>
+
+          <h3>Timer not starting</h3>
+          <ul>
+            <li>Verify <code>autoStart: true</code> in your config.</li>
+            <li>Check that your <code>license-key</code> is valid and active.</li>
+            <li>Restart the server fully (don't use <code>/reload</code>).</li>
+            <li>Check the console for any error messages from KeyAllX.</li>
+          </ul>
+
+          <h3>Rewards not being given</h3>
+          <ul>
+            <li>Verify the commands in the <code>command</code> and <code>perPlayerCommand</code> list work when run manually from console.</li>
+            <li>Check that <code>minimumPlayers</code> is met — the event won't fire if not enough players are online.</li>
+            <li>If using <code>timeRestrictions</code> or <code>allowedDays</code>, ensure the current time/day is within the allowed window.</li>
+            <li>Check for typos in the YAML — use a <a href="https://www.yamllint.com/" target="_blank" rel="noopener">YAML validator</a>.</li>
+          </ul>
+
+          <h3>Discord webhook not sending</h3>
+          <ul>
+            <li>Verify the webhook URL is correct and active in your Discord server settings.</li>
+            <li>Ensure your server has outbound HTTPS access (some hosts restrict this).</li>
+            <li>Enable <code>debug: true</code> to see detailed webhook logs in console.</li>
+          </ul>
+
+          <h3>Getting Help</h3>
+          <p>If you can't resolve your issue, join our <a href="https://dsc.gg/neonstudios" target="_blank" rel="noopener">Discord server</a> and open a support ticket with:</p>
+          <ul>
+            <li>Your server version (<code>/version</code>)</li>
+            <li>KeyAllX version</li>
+            <li>Relevant console errors</li>
+            <li>Your <code>config.yml</code> contents (redact your license key)</li>
+          </ul>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section id="faq">
+          <h2>FAQ</h2>
+
+          <details class="faq-item">
+            <summary><strong>Does KeyAllX support PlaceholderAPI?</strong></summary>
+            <p>Yes — KeyAllX fully supports PlaceholderAPI built-in. See the <a href="#placeholderapi">PlaceholderAPI section</a> for available placeholders and usage examples.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><strong>Can I customize the rewards per player?</strong></summary>
+            <p>Fully. You can define <code>perPlayerCommand</code> to run commands using <code>{player}</code> placeholder. This runs the command logic on every player currently online when KeyAll event is hit.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><strong>Can I stop the timer?</strong></summary>
+            <p>Yes — use <code>/stop-timer</code> to halt the timer. Use <code>/reset-timer</code> to restart it from the full interval. Both require the appropriate permission.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><strong>Does it work on BungeeCord / Velocity networks?</strong></summary>
+            <p>KeyAllX operates per-server. On a network, you would install it on each backend server where you want keyall events to run independently.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><strong>What happens if no players are online?</strong></summary>
+            <p>If the <code>minimumPlayers</code> threshold isn't met, the timer might be skipped or deferred depending on server behavior. Ensure your configuration aligns with the events.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><strong>Is there a free version?</strong></summary>
+            <p>KeyAllX is a premium plugin by NeonStudios. Contact us on <a href="https://dsc.gg/neonstudios" target="_blank" rel="noopener">Discord</a> for pricing and licensing information.</p>
+          </details>
+        </section>
+
+        <!-- ===== Support ===== -->
+        <section id="support">
+          <h2>Support</h2>
+          <p>Need help with KeyAllX? We're here for you.</p>
+
+          <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;text-align:center;margin:1.5rem 0;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-hover)" stroke-width="1.5" style="margin-bottom:1rem;">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <h3 style="margin-bottom:0.5rem;color:var(--text-primary);">Join Our Discord</h3>
+            <p style="color:var(--text-muted);margin-bottom:1.25rem;font-size:0.9rem;">Get help from our team, report bugs, request features, and connect with the community.</p>
+            <a href="https://dsc.gg/neonstudios" class="btn btn-primary" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px;"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561 19.9312 19.9312 0 005.9932 3.0294.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286 19.8975 19.8975 0 006.0023-3.0294.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"/></svg>
+              dsc.gg/neonstudios
+            </a>
+          </div>
+        </section>
+
+        <!-- Page navigation -->
+        <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+          <a href="../index.html" class="btn btn-secondary" style="font-size:0.875rem;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            All Documentation
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">NeonStudios</span>
+        <span class="footer-copy">&copy; 2024 NeonStudios. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html" class="footer-link">Home</a>
+        <a href="https://dsc.gg/neonstudios" class="footer-link" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561 19.9312 19.9312 0 005.9932 3.0294.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286 19.8975 19.8975 0 006.0023-3.0294.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"/></svg>
+          Discord
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Prism.js for syntax highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="../app.js"></script>
+  <script>
+    // KeyAllX-specific search data override with updated relative paths
+    (function() {
+      if (typeof window._searchDataOverride === 'undefined') {
+        window._searchDataOverride = [
+          { title: 'Introduction', section: 'Getting Started', href: '#introduction', keywords: 'introduction about keyallx overview premium rewards' },
+          { title: 'Why KeyAllX', section: 'Getting Started', href: '#why-keyallx', keywords: 'why retention engagement hype configurable scalable' },
+          { title: 'Installation', section: 'Getting Started', href: '#installation', keywords: 'install setup download jar plugins config' },
+          { title: 'Commands', section: 'Usage', href: '#commands', keywords: 'commands keyallx reload reset-timer stop-timer' },
+          { title: 'Permissions', section: 'Usage', href: '#permissions', keywords: 'permissions op luckperms reload manipulate timer' },
+          { title: 'Configuration', section: 'Configuration', href: '#configuration', keywords: 'config yml license debug bstats core settings' },
+          { title: 'Timer System', section: 'Configuration', href: '#timer-system', keywords: 'timer interval autostart seconds cooldown duration' },
+          { title: 'Rewards', section: 'Configuration', href: '#rewards', keywords: 'rewards command perplayer crate key giveall' },
+          { title: 'Messages & Visuals', section: 'Configuration', href: '#messages-visuals', keywords: 'messages title subtitle sound hotbar actionbar broadcast' },
+          { title: 'Reminder System', section: 'Configuration', href: '#reminder-system', keywords: 'reminders countdown notifications hype engagement' },
+          { title: 'Restrictions', section: 'Configuration', href: '#restrictions', keywords: 'restrictions time days worlds permission minimum players' },
+          { title: 'Discord Integration', section: 'Configuration', href: '#discord-integration', keywords: 'discord webhook notifications integration' },
+          { title: 'PlaceholderAPI', section: 'Advanced', href: '#placeholderapi', keywords: 'placeholder papi timer days hours seconds scoreboard mins minutes' },
+          { title: 'Features', section: 'Advanced', href: '#features', keywords: 'features timer reminder placeholder visual performance discord' },
+          { title: 'Use Cases', section: 'Advanced', href: '#use-cases', keywords: 'use cases retention activity events weekend' },
+          { title: 'Troubleshooting', section: 'Support', href: '#troubleshooting', keywords: 'troubleshoot error fix commands timer rewards webhook' },
+          { title: 'FAQ', section: 'Support', href: '#faq', keywords: 'faq questions placeholderapi rewards stop timer network free' },
+          { title: 'Support', section: 'Support', href: '#support', keywords: 'support help discord contact' },
+        ];
+      }
+    })();
+  </script>
+</body>
+</html>
