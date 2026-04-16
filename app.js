@@ -146,6 +146,7 @@
     { title: 'KillSounds', section: 'Products', href: 'docs/killsounds.html#introduction', keywords: 'killsounds pvp combat sounds gui' },
     { title: 'NeonGlows', section: 'Products', href: 'docs/neonglows.html#introduction', keywords: 'neonglows glow effects cosmetics' },
     { title: 'NeonClans', section: 'Products', href: 'docs/neonclans.html#introduction', keywords: 'neonclans clans alliances treasury pvp premium' },
+    { title: 'NeonTokenX', section: 'Products', href: 'docs/neontokenx.html#introduction', keywords: 'neontokenx tokensmp abilities tokens crafting economy premium' },
   ];
 
   function initSearch() {

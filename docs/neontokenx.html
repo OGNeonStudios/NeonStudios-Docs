@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeonTokenX Documentation — NeonStudios</title>
+  <meta name="description"
+    content="Complete documentation for NeonTokenX — an advanced TokenSMP inspired custom tokens plugin with a built in economy, interactive GUI, and complex 3x3 crafting.">
+  <meta name="keywords" content="NeonTokenX, TokenSMP, tokens, crafting, economy, Minecraft, NeonStudios, premium plugins">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="NeonTokenX Documentation — NeonStudios">
+  <meta property="og:description"
+    content="An advanced custom token plugin with 3x3 crafting, GUI integration, economy ties, and custom token durability.">
+  <meta property="og:url" content="https://docs.neonstudios.in/neontokenx">
+  <meta property="og:site_name" content="NeonStudios">
+  <meta property="og:image" content="https://docs.neonstudios.in/assets/logo.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="NeonStudios Logo">
+  <meta name="theme-color" content="#f59e0b">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NeonTokenX Documentation — NeonStudios">
+  <meta name="twitter:description"
+    content="An advanced custom token plugin with 3x3 crafting, GUI integration, economy ties, and custom token durability.">
+  <meta name="twitter:image" content="https://docs.neonstudios.in/assets/logo.jpg">
+
+  <link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <style>
+    pre[class*="language-"],
+    code[class*="language-"] {
+      font-family: var(--font-mono) !important;
+      font-size: var(--text-sm) !important;
+      background: none !important;
+      text-shadow: none !important;
+    }
+
+    pre[class*="language-"] {
+      padding: 1.25rem 1.5rem !important;
+      margin: 0 !important;
+      overflow: auto;
+    }
+
+    .token.comment { color: #6b7280 !important; }
+    .token.string { color: #a5d6ff !important; }
+    .token.keyword { color: #c084fc !important; }
+    .token.boolean, .token.number { color: #f59e0b !important; }
+    .token.property { color: #67e8f9 !important; }
+    .token.punctuation { color: #9ca3af !important; }
+    .token.selector, .token.tag { color: #f87171 !important; }
+    .token.attr-name { color: #818cf8 !important; }
+    .token.attr-value { color: #a5d6ff !important; }
+  </style>
+</head>
+
+<body>
+  <!-- ===== Header ===== -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="NeonStudios Home">
+        <img src="../assets/logo.jpg" alt="NeonStudios Logo" style="width: 32px; height: 32px; border-radius: 6px;">
+        <span>NeonStudios</span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="../index.html" class="nav-link active">Docs</a>
+        <a href="https://dsc.gg/neonstudios" class="nav-link" target="_blank" rel="noopener">Community</a>
+      </nav>
+
+      <button class="nav-cta" id="searchTrigger" onclick="openSearch()" style="cursor:pointer;">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          style="margin-right:6px;"><circle cx="7" cy="7" r="5" /><line x1="11" y1="11" x2="13" y2="13" /></svg>
+        Search
+        <kbd style="margin-left:8px;">Ctrl+K</kbd>
+      </button>
+
+      <button class="mobile-menu-btn" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Search Overlay ===== -->
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search documentation">
+    <div class="search-modal">
+      <input type="text" class="search-modal-input" id="searchInput" placeholder="Search NeonTokenX documentation..."
+        autocomplete="off">
+      <div class="search-results" id="searchResults">
+        <div class="search-empty">Type to search the documentation...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Sidebar Overlay (mobile) ===== -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== Docs Layout ===== -->
+  <div class="docs-layout">
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Documentation navigation">
+      <div class="sidebar-search">
+        <div class="sidebar-search-wrapper">
+          <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" placeholder="Search docs..." id="sidebarSearchInput" aria-label="Search documentation"
+            onclick="openSearch()">
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Getting Started</div>
+          <a href="#introduction" class="sidebar-link active" data-section="introduction">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Introduction
+          </a>
+          <a href="#why-neontokenx" class="sidebar-link" data-section="why-neontokenx">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
+            Why NeonTokenX
+          </a>
+          <a href="#installation" class="sidebar-link" data-section="installation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Installation
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Usage</div>
+          <a href="#commands" class="sidebar-link" data-section="commands">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            Commands
+          </a>
+          <a href="#permissions" class="sidebar-link" data-section="permissions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Permissions
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Features & Configs</div>
+          <a href="#tokens" class="sidebar-link" data-section="tokens">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+            Token Abilities
+          </a>
+          <a href="#crafting" class="sidebar-link" data-section="crafting">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            3x3 Crafting Engine
+          </a>
+          <a href="#economy-durability" class="sidebar-link" data-section="economy-durability">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            Economy & Durability
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Support</div>
+          <a href="#support" class="sidebar-link" data-section="support">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Support
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="docs-main" id="docsMain" role="main">
+      <div class="docs-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Docs Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current">NeonTokenX</span>
+        </nav>
+
+        <!-- ===== Introduction ===== -->
+        <section id="introduction">
+          <h1>NeonTokenX</h1>
+          <p>
+            <strong>A premium TokenSMP-inspired custom abilities plugin.</strong>
+          </p>
+          <p>
+            NeonTokenX introduces 20 uniquely crafted tokens inspired by Minecraft's iconic mobs resulting in highly coveted progression drops. Empower your players with abilities ranging from teleportation and flight to explosive attacks and sonic darkness—all wrapped in a cleanly engineered GUI system, comprehensive Vault economy bindings, and custom Durability limiters to keep it perfectly balanced for survival/SMP.
+          </p>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <div>
+              <strong>Premium Plugin</strong>
+              <p>NeonTokenX is a premium offering from NeonStudios. For licensing, downloads, or purchase info, visit our <a href="https://dsc.gg/neonstudios" target="_blank" rel="noopener">Discord server</a> or our <a href="https://builtbybit.com/creators/neon-studios.333551/" target="_blank" rel="noopener">BuiltByBit page</a>.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Why NeonTokenX ===== -->
+        <section id="why-neontokenx">
+          <h2>Why NeonTokenX?</h2>
+          <p>Bring the virality of TokenSMP directly to your network. Here's what sets NeonTokenX apart from generic ability plugins:</p>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0 2rem;">
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🎒</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">20 Unique Abilities</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">From the Ender Pearl teleporting 'Enderman' token, to the destructive 'Warden' sonic abilities.</p>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🛠️</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Deep Crafting System</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Every token has a customizable 3x3 recipe grid powered by `crafting.yml`.</p>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🛡️</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Balanced Durability</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Tokens can break. Prevent players from becoming endlessly overpowered by adding use limits.</p>
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🖥️</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Gorgeous UI</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Comes with a 45-slot token selection menu pre-framed in a beautiful purple neon border right out of the box.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Installation ===== -->
+        <section id="installation">
+          <h2>Installation</h2>
+          <p>Let's get this configured into your server.</p>
+
+          <ol>
+            <li><strong>Download</strong> the compiled <code>NeonTokenX.jar</code> from our primary distribution channels.</li>
+            <li><strong>Dependencies:</strong> Ensure you have <code>Vault</code> installed for economy purchases.</li>
+            <li><strong>Installation:</strong> Drag and drop the `.jar` into the <code>/plugins</code> directory.</li>
+            <li><strong>Restart</strong> the server entirely for code manipulation safely.</li>
+            <li><strong>Configuration:</strong> Replace <code>license</code> block in the generated `config.yml` with your distributed key.</li>
+          </ol>
+        </section>
+
+        <!-- ===== Commands ===== -->
+        <section id="commands">
+          <h2>Commands</h2>
+          <p>NeonTokenX implements a core split command structure.</p>
+
+          <h3>Player Command: <code>/tokens</code></h3>
+          <p>Opens the Token Selection GUI where players can browse available tokens, check their abilities, and view associated economy costs.</p>
+
+          <h3>Admin Commands: <code>/token</code></h3>
+          <table>
+            <thead><tr><th>Command</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>/token give &lt;player&gt; &lt;token&gt; [amount]</code></td><td>Gift tokens directly bypassing all paywalls</td></tr>
+              <tr><td><code>/token list</code></td><td>Show all available internal token designations</td></tr>
+              <tr><td><code>/token info &lt;token&gt;</code></td><td>Display cooldown and lore info regarding a token</td></tr>
+              <tr><td><code>/token clear &lt;player&gt;</code></td><td>Deletes player cooldown limits administratively</td></tr>
+              <tr><td><code>/token reload</code></td><td>Reload config and crafting structures</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ===== Permissions ===== -->
+        <section id="permissions">
+          <h2>Permissions</h2>
+          <p>Define exactly what aspects of the token system each user class is allowed to access.</p>
+
+          <table>
+            <thead>
+              <tr><th>Permission</th><th>Description</th><th>Default</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>token.use</code></td><td>Allows access to the <code>/tokens</code> GUI</td><td>True</td></tr>
+              <tr><td><code>token.give</code></td><td>Permits giving token items physically into inventories</td><td>OP</td></tr>
+              <tr><td><code>token.admin</code></td><td>Administrative control for reload and cooldown clears</td><td>OP</td></tr>
+              <tr><td><code>neontokenx.craft</code></td><td>Required if you enable strict permission adherence in `crafting.yml` </td><td>True</td></tr>
+              <tr><td><code>neontokenx.*</code></td><td>Master grant for all token functions</td><td>OP</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ===== Token Abilities ===== -->
+        <section id="tokens">
+          <h2>Token Abilities</h2>
+          <p>Each token applies a combination of magical enhancements and specific right-click spell mechanisms. Every token is individually capable of being disabled, re-priced, or cooldown-adjusted.</p>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — config.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">tokens:
+  enderman:
+    enabled: true
+    slot: 12
+    material: "ENDER_PEARL"
+    cooldown: 10000 # Time in ms
+    display_name: "&0Enderman Token"
+    craftable: false
+    economy_price: 750
+    lore:
+      - "&7Right-click to activate Enderman abilities"
+      - "&8• Teleportation and night vision"
+      - ""
+      - "&e⚡ Click to use!"</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== Crafting Engine ===== -->
+        <section id="crafting">
+          <h2>3x3 Crafting Engine</h2>
+          <p>The tokens in NeonTokenX can either be sold monetarily, rewarded, OR deeply integrated into the survival experience using our robust crafting setup inside <code>crafting.yml</code>.</p>
+          
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — crafting.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">crafting:
+  warden:
+    enabled: true
+    pattern:
+      - "EEE" # Top Row
+      - "ESE" # Middle Row
+      - "EEE" # Bottom Row
+    ingredients:
+      E: "ECHO_SHARD"
+      S: "SCULK_CATALYST"</code></pre>
+          </div>
+          
+          <p>Just specify a unique letter (such as 'E' or 'S' above) and tie it directly to a native Minecraft <code>Material</code>.</p>
+        </section>
+
+        <!-- ===== Economy & Durability ===== -->
+        <section id="economy-durability">
+          <h2>Economy & Durability Balancing</h2>
+          <p>Keep your tokens from completely inflating the power-creep of your server!</p>
+
+          <p><strong>Economy Component:</strong> Uses Vault to allow seamless purchase integrations directly from the GUI.</p>
+          <p><strong>Durability Limiter:</strong> Automatically strips the token from the player after it reaches `max_uses`. You can dynamically toggle this lore overlay.</p>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — config.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">token_settings:
+  durability:
+    enabled: true
+    max_uses: 100
+    show_durability: true
+
+economy:
+  enabled: true
+  currency_name: "coins"</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== Support ===== -->
+        <section id="support">
+          <h2>Support</h2>
+          <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;text-align:center;margin:1.5rem 0;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-hover)" stroke-width="1.5" style="margin-bottom:1rem;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+            <h3 style="margin-bottom:0.5rem;color:var(--text-primary);">Join Our Discord</h3>
+            <p style="color:var(--text-muted);margin-bottom:1.25rem;font-size:0.9rem;">Get help from our team, report bugs, request features, and connect with the community.</p>
+            <a href="https://dsc.gg/neonstudios" class="btn btn-primary" target="_blank" rel="noopener">dsc.gg/neonstudios</a>
+          </div>
+        </section>
+
+        <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+          <a href="../index.html" class="btn btn-secondary" style="font-size:0.875rem;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
+            All Documentation
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">NeonStudios</span>
+        <span class="footer-copy">&copy; 2024 NeonStudios. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html" class="footer-link">Home</a>
+        <a href="https://dsc.gg/neonstudios" class="footer-link" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="../app.js"></script>
+  <script>
+    (function () {
+      if (typeof window._searchDataOverride === 'undefined') {
+        window._searchDataOverride = [
+          { title: 'Introduction', section: 'Getting Started', href: '#introduction', keywords: 'introduction neontokenx overview token tokensmp premium abilities' },
+          { title: 'Why NeonTokenX', section: 'Getting Started', href: '#why-neontokenx', keywords: 'why premium features tokens gui crafting durability' },
+          { title: 'Installation', section: 'Getting Started', href: '#installation', keywords: 'install setup config jar download dependencies vault' },
+          { title: 'Commands', section: 'Usage', href: '#commands', keywords: 'commands tokens token give clear reload admin gui' },
+          { title: 'Permissions', section: 'Usage', href: '#permissions', keywords: 'permissions op bypass token give use admin craft' },
+          { title: 'Token Abilities', section: 'Features & Configs', href: '#tokens', keywords: 'tokens powers abilities enderman wither dragon cooldown' },
+          { title: '3x3 Crafting Engine', section: 'Features & Configs', href: '#crafting', keywords: 'crafting recipes 3x3 pattern custom materials engine' },
+          { title: 'Economy & Durability', section: 'Features & Configs', href: '#economy-durability', keywords: 'economy vault durability uses breaks price' },
+          { title: 'Support', section: 'Support', href: '#support', keywords: 'support help discord contact' },
+        ];
+      }
+    })();
+  </script>
+</body>
+</html>
