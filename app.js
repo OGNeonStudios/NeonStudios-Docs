@@ -142,7 +142,7 @@
     { title: 'Discord Bots', section: 'Products', href: 'index.html#products', keywords: 'discord bot moderation community' },
     { title: 'Skripts', section: 'Products', href: 'index.html#products', keywords: 'skript scripts automation custom mechanics' },
     { title: 'Server Setups', section: 'Products', href: 'index.html#products', keywords: 'server setup configuration deployment' },
-    { title: 'NeonSpawn', section: 'Featured Projects', href: 'index.html#featured', keywords: 'neonspawn spawn management teleport' },
+    { title: 'NeonSpawn', section: 'Products', href: 'docs/neonspawn.html#introduction', keywords: 'neonspawn spawn management teleport' },
     { title: 'PvPGuard', section: 'Featured Projects', href: 'index.html#featured', keywords: 'pvpguard pvp combat protection' },
     { title: 'NeonGlows', section: 'Products', href: 'docs/neonglows.html#introduction', keywords: 'neonglows glow effects cosmetics' },
   ];
