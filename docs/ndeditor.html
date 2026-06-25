@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeonDeluxeMenusEditor Documentation — NeonStudios</title>
+  <meta name="description"
+    content="Complete documentation for NeonDeluxeMenusEditor — a professional in-game visual editor for DeluxeMenus with WYSIWYG editing, backups, and multi-storage support.">
+  <meta name="keywords"
+    content="NeonDeluxeMenusEditor, NDEditor, DeluxeMenus, editor, GUI, Minecraft, NeonStudios, menu editor, WYSIWYG">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="NeonDeluxeMenusEditor Documentation — NeonStudios">
+  <meta property="og:description"
+    content="A professional in-game visual editor for DeluxeMenus with WYSIWYG editing, backups, and multi-storage support.">
+  <meta property="og:url" content="https://docs.neonstudios.in/ndeditor">
+  <meta property="og:site_name" content="NeonStudios">
+  <meta property="og:image" content="https://docs.neonstudios.in/assets/logo.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="NeonStudios Logo">
+  <meta name="theme-color" content="#f59e0b">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NeonDeluxeMenusEditor Documentation — NeonStudios">
+  <meta name="twitter:description"
+    content="A professional in-game visual editor for DeluxeMenus with WYSIWYG editing, backups, and multi-storage support.">
+  <meta name="twitter:image" content="https://docs.neonstudios.in/assets/logo.jpg">
+
+  <link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- Prism.js Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <style>
+    pre[class*="language-"],
+    code[class*="language-"] {
+      font-family: var(--font-mono) !important;
+      font-size: var(--text-sm) !important;
+      background: none !important;
+      text-shadow: none !important;
+    }
+
+    pre[class*="language-"] {
+      padding: 1.25rem 1.5rem !important;
+      margin: 0 !important;
+      overflow: auto;
+    }
+
+    .token.comment {
+      color: #6b7280 !important;
+    }
+
+    .token.string {
+      color: #a5d6ff !important;
+    }
+
+    .token.keyword {
+      color: #c084fc !important;
+    }
+
+    .token.boolean,
+    .token.number {
+      color: #f59e0b !important;
+    }
+
+    .token.property {
+      color: #67e8f9 !important;
+    }
+
+    .token.punctuation {
+      color: #9ca3af !important;
+    }
+
+    .token.selector,
+    .token.tag {
+      color: #f87171 !important;
+    }
+
+    .token.attr-name {
+      color: #818cf8 !important;
+    }
+
+    .token.attr-value {
+      color: #a5d6ff !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== Header ===== -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="NeonStudios Home">
+        <img src="../assets/logo.jpg" alt="NeonStudios Logo" style="width: 32px; height: 32px; border-radius: 6px;">
+        <span>NeonStudios</span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="../index.html" class="nav-link active">Docs</a>
+        <a href="https://dsc.gg/neonstudios" class="nav-link" target="_blank" rel="noopener">Community</a>
+      </nav>
+
+      <button class="nav-cta" id="searchTrigger" onclick="openSearch()" style="cursor:pointer;">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          style="margin-right:6px;">
+          <circle cx="7" cy="7" r="5" />
+          <line x1="11" y1="11" x2="13" y2="13" />
+        </svg>
+        Search
+        <kbd style="margin-left:8px;">Ctrl+K</kbd>
+      </button>
+
+      <button class="mobile-menu-btn" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Search Overlay ===== -->
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search documentation">
+    <div class="search-modal">
+      <input type="text" class="search-modal-input" id="searchInput"
+        placeholder="Search NDEditor documentation..." autocomplete="off">
+      <div class="search-results" id="searchResults">
+        <div class="search-empty">Type to search the documentation...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Sidebar Overlay (mobile) ===== -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== Docs Layout ===== -->
+  <div class="docs-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Documentation navigation">
+      <div class="sidebar-search">
+        <div class="sidebar-search-wrapper">
+          <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" placeholder="Search docs..." id="sidebarSearchInput" aria-label="Search documentation"
+            onclick="openSearch()">
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Getting Started</div>
+          <a href="#introduction" class="sidebar-link active" data-section="introduction">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            Introduction
+          </a>
+          <a href="#features" class="sidebar-link" data-section="features">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+            Features
+          </a>
+          <a href="#installation" class="sidebar-link" data-section="installation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Installation
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Usage</div>
+          <a href="#commands" class="sidebar-link" data-section="commands">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="4 17 10 11 4 5" />
+              <line x1="12" y1="19" x2="20" y2="19" />
+            </svg>
+            Commands
+          </a>
+          <a href="#permissions" class="sidebar-link" data-section="permissions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            Permissions
+          </a>
+          <a href="#gui-overview" class="sidebar-link" data-section="gui-overview">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="9" y1="21" x2="9" y2="9" />
+            </svg>
+            GUI Editors
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Configuration</div>
+          <a href="#config-yml" class="sidebar-link" data-section="config-yml">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+            config.yml
+          </a>
+          <a href="#editor-yml" class="sidebar-link" data-section="editor-yml">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+            </svg>
+            editor.yml
+          </a>
+          <a href="#gui-yml" class="sidebar-link" data-section="gui-yml">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+            gui.yml
+          </a>
+          <a href="#sounds-yml" class="sidebar-link" data-section="sounds-yml">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            sounds.yml
+          </a>
+          <a href="#messages-yml" class="sidebar-link" data-section="messages-yml">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            messages.yml
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Advanced</div>
+          <a href="#storage" class="sidebar-link" data-section="storage">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+            </svg>
+            Storage
+          </a>
+          <a href="#backups" class="sidebar-link" data-section="backups">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+              <polyline points="17 21 17 13 7 13 7 21" />
+              <polyline points="7 3 7 8 15 8" />
+            </svg>
+            Backups
+          </a>
+          <a href="#dependencies" class="sidebar-link" data-section="dependencies">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2m5.66 0H14a2 2 0 0 1 2 2v3.34" />
+              <path d="M14 3v4a2 2 0 0 0 2 2h4" />
+              <polyline points="20 15 12 23 8.5 19.5" />
+            </svg>
+            Dependencies
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Support</div>
+          <a href="#support" class="sidebar-link" data-section="support">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            Support
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main" id="docsMain" role="main">
+      <div class="docs-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Docs Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current">NeonDeluxeMenusEditor</span>
+        </nav>
+
+        <!-- ===== Introduction ===== -->
+        <section id="introduction">
+          <h1>NeonDeluxeMenusEditor</h1>
+          <p>
+            <strong>A professional in-game visual editor for DeluxeMenus</strong> — create, edit, and manage your
+            DeluxeMenus configurations without ever touching a YAML file.
+          </p>
+          <p>
+            NDEditor provides a complete WYSIWYG editing experience with drag-and-drop item placement, visual action and
+            requirement builders, undo/redo history, live preview, automatic backups, and multi-storage support
+            including MySQL, SQLite, JSON, and YAML. Fully compatible with Folia and Paper.
+          </p>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            <div>
+              <strong>Plugin Source</strong>
+              <p>For downloads or plugin requests, visit our <a href="https://dsc.gg/neonstudios" target="_blank"
+                  rel="noopener">Discord server</a> or our <a
+                  href="https://builtbybit.com/creators/neon-studios.333551/" target="_blank"
+                  rel="noopener">BuiltByBit page</a>.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Features ===== -->
+        <section id="features">
+          <h2>Features</h2>
+          <p>NDEditor is built for <strong>maximum productivity and zero YAML headaches</strong>.</p>
+
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0 2rem;">
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🖱️</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">WYSIWYG Editor</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Visual drag-and-drop menu
+                editing directly in-game with slot numbers and live updates.</p>
+            </div>
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">↩️</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Undo / Redo</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Full history tracking with
+                configurable depth — never lose your changes.</p>
+            </div>
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">👁️</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Live Preview</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Preview menus exactly as
+                players see them, with placeholders resolved.</p>
+            </div>
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">💾</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Multi-Storage</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">YAML, JSON, SQLite, MySQL,
+                and MariaDB storage backends with HikariCP pooling.</p>
+            </div>
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🔄</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Auto-Backups</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Scheduled compressed backups
+                with rotation, restore, and a dedicated backup manager GUI.</p>
+            </div>
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">📦</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Import / Export</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Bulk import or export
+                DeluxeMenus configurations for migration and sharing.</p>
+            </div>
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🔊</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Sound Effects</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Fully configurable UI sounds
+                for clicks, saves, errors, and special effects.</p>
+            </div>
+            <div
+              style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🌿</div>
+              <h4 style="margin:0 0 0.25rem;font-size:0.9rem;">Folia Compatible</h4>
+              <p style="margin:0;font-size:0.8rem;color:var(--text-muted);line-height:1.5;">First-class support for
+                Folia, Paper, and Spigot with async I/O.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Installation ===== -->
+        <section id="installation">
+          <h2>Installation</h2>
+          <p>Setting up NeonDeluxeMenusEditor takes just a minute.</p>
+
+          <ol>
+            <li><strong>Download</strong> the latest <code>NeonDeluxeMenusEditor.jar</code> from the official
+              NeonStudios release channel.</li>
+            <li><strong>Place</strong> the <code>.jar</code> inside your server's <code>/plugins</code> directory.</li>
+            <li><strong>Install</strong> <a href="https://www.spigotmc.org/resources/deluxemenus.11734/"
+                target="_blank" rel="noopener">DeluxeMenus</a> (soft dependency — recommended for full features).</li>
+            <li><strong>Restart</strong> your server completely. (Avoid using <code>/reload</code>).</li>
+            <li><strong>Modify</strong> configuration files in <code>/plugins/NeonDeluxeMenusEditor/</code> to suit your
+              needs.</li>
+          </ol>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            <div>
+              <strong>Optional Dependencies</strong>
+              <p><a href="https://www.spigotmc.org/resources/placeholderapi.6245/" target="_blank"
+                  rel="noopener">PlaceholderAPI</a> enables placeholder resolution in previews.
+                <a href="https://www.spigotmc.org/resources/vault.34315/" target="_blank" rel="noopener">Vault</a>
+                enables economy-related actions (give/take money).
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Commands ===== -->
+        <section id="commands">
+          <h2>Commands</h2>
+          <p>All commands use the base <code>/ndeditor</code> command with aliases: <code>/deditor</code>,
+            <code>/nde</code>, <code>/ndme</code>.
+          </p>
+
+          <h3>Menu Management</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Permission</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/ndeditor create</code></td>
+                <td>Create a new menu via wizard GUI</td>
+                <td><code>ndeditor.create</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor edit &lt;menu&gt;</code></td>
+                <td>Open the visual editor for a specific menu</td>
+                <td><code>ndeditor.edit</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor editor</code></td>
+                <td>Open the menu list / manager GUI</td>
+                <td><code>ndeditor.editor</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor delete &lt;menu&gt;</code></td>
+                <td>Delete a menu (with confirmation)</td>
+                <td><code>ndeditor.delete</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor clone &lt;source&gt; &lt;target&gt;</code></td>
+                <td>Clone an existing menu to a new name</td>
+                <td><code>ndeditor.create</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor rename &lt;old&gt; &lt;new&gt;</code></td>
+                <td>Rename an existing menu</td>
+                <td><code>ndeditor.edit</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor list</code></td>
+                <td>List all available menus</td>
+                <td><code>ndeditor.use</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor preview &lt;menu&gt;</code></td>
+                <td>Preview a menu as players see it</td>
+                <td><code>ndeditor.preview</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Import / Export</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Permission</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/ndeditor import</code></td>
+                <td>Import menus from file</td>
+                <td><code>ndeditor.import</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor export &lt;menu&gt;</code></td>
+                <td>Export a menu to file</td>
+                <td><code>ndeditor.export</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Backup & Restore</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Permission</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/ndeditor backup</code></td>
+                <td>Create a manual backup</td>
+                <td><code>ndeditor.backup</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor restore &lt;name&gt;</code></td>
+                <td>Restore a backup</td>
+                <td><code>ndeditor.restore</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor backups</code></td>
+                <td>Open the Backup Manager GUI</td>
+                <td><code>ndeditor.backup</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Utility</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Permission</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/ndeditor config</code></td>
+                <td>Open the DeluxeMenus Config Editor GUI</td>
+                <td><code>ndeditor.admin</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor files</code></td>
+                <td>Open the DeluxeMenus File Manager GUI</td>
+                <td><code>ndeditor.admin</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor reload</code></td>
+                <td>Reload all configuration files</td>
+                <td><code>ndeditor.reload</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor debug</code></td>
+                <td>Toggle debug mode</td>
+                <td><code>ndeditor.debug</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor version</code></td>
+                <td>Show plugin version info</td>
+                <td><code>ndeditor.use</code></td>
+              </tr>
+              <tr>
+                <td><code>/ndeditor help</code></td>
+                <td>Show the help menu</td>
+                <td><code>ndeditor.use</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ===== Permissions ===== -->
+        <section id="permissions">
+          <h2>Permissions</h2>
+          <p>NDEditor uses a granular permission system. All permissions default to <strong>OP</strong>.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Description</th>
+                <th>Children</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>ndeditor.admin</code></td>
+                <td>Full administrative access — grants all permissions below</td>
+                <td>All</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.editor</code></td>
+                <td>General editor access</td>
+                <td><code>create</code>, <code>edit</code>, <code>preview</code>, <code>use</code></td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.use</code></td>
+                <td>Basic usage (help, version, list)</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.create</code></td>
+                <td>Create new menus</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.edit</code></td>
+                <td>Edit existing menus</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.delete</code></td>
+                <td>Delete menus</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.import</code></td>
+                <td>Import menus from files</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.export</code></td>
+                <td>Export menus to files</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.reload</code></td>
+                <td>Reload plugin configuration</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.backup</code></td>
+                <td>Create backups</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.restore</code></td>
+                <td>Restore backups</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.debug</code></td>
+                <td>Access debug mode</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>ndeditor.preview</code></td>
+                <td>Preview menus</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ===== GUI Overview ===== -->
+        <section id="gui-overview">
+          <h2>GUI Editors</h2>
+          <p>NDEditor provides a suite of interconnected GUI editors — all accessible in-game without touching any
+            files.</p>
+
+          <h3>Menu Manager</h3>
+          <p>The main hub (<code>/ndeditor editor</code>) shows all your DeluxeMenus in a paginated grid. From here you
+            can:</p>
+          <ul>
+            <li><strong>Create</strong> — Click the Emerald button to launch the creation wizard</li>
+            <li><strong>Edit</strong> — Click any menu to open the visual editor</li>
+            <li><strong>Delete / Clone</strong> — Right-click or shift-click for advanced options</li>
+            <li><strong>Search</strong> — Use the Compass to filter menus by name</li>
+            <li><strong>Import</strong> — Click the Hopper to import from files</li>
+          </ul>
+
+          <h3>Visual Menu Editor</h3>
+          <p>The WYSIWYG editor (<code>/ndeditor edit &lt;menu&gt;</code>) mirrors the actual menu layout. Features
+            include:</p>
+          <ul>
+            <li><strong>Click empty slots</strong> to add new items</li>
+            <li><strong>Click occupied slots</strong> to open the Item Editor</li>
+            <li><strong>Drag items</strong> between slots for repositioning</li>
+            <li>Bottom toolbar: <strong>Save</strong>, <strong>Undo</strong>, <strong>Redo</strong>,
+              <strong>Settings</strong>, <strong>Preview</strong>, <strong>Back</strong>
+            </li>
+          </ul>
+
+          <h3>Item Editor</h3>
+          <p>A comprehensive item configuration GUI with dedicated sub-editors:</p>
+          <ul>
+            <li><strong>Material Selector</strong> — Browse materials by category (Building, Decoration, Redstone,
+              Tools, Combat, Food, Brewing, Heads, etc.)</li>
+            <li><strong>Lore Editor</strong> — Add, remove, and reorder lore lines visually</li>
+            <li><strong>Action Editor</strong> — Configure click actions with 15 action types (player/console commands,
+              open/close menu, messages, sounds, permissions, money, and more)</li>
+            <li><strong>Requirement Editor</strong> — Set view/click requirements (permission, money, item, string
+              comparisons, regex, JavaScript, numeric comparators)</li>
+            <li><strong>Enchantment Editor</strong> — Add/remove enchantments with level selection</li>
+            <li><strong>Item Flag Editor</strong> — Toggle flags like HIDE_ENCHANTS, HIDE_ATTRIBUTES</li>
+            <li><strong>Potion Editor</strong> — Configure potion effects</li>
+            <li><strong>Head Selector</strong> — Select player heads by name</li>
+          </ul>
+
+          <h3>Additional GUIs</h3>
+          <ul>
+            <li><strong>Backup Manager</strong> (<code>/ndeditor backups</code>) — Browse, restore, and delete
+              backups</li>
+            <li><strong>Config Editor</strong> (<code>/ndeditor config</code>) — Edit DeluxeMenus' own config.yml
+              visually</li>
+            <li><strong>File Manager</strong> (<code>/ndeditor files</code>) — Browse, create, delete, and rename
+              DeluxeMenus menu files</li>
+            <li><strong>Placeholder Browser</strong> — Browse available placeholders from PlaceholderAPI</li>
+          </ul>
+        </section>
+
+        <!-- ===== config.yml ===== -->
+        <section id="config-yml">
+          <h2>config.yml</h2>
+          <p>The main configuration file controlling general behavior, storage, backups, caching, and performance.</p>
+
+          <h3>General Settings</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — config.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml"># License Configuration
+license: ''
+
+# General Settings
+general:
+  # Language file to use
+  language: "en"
+  # Enable debug mode (verbose logging)
+  debug: false
+  # Enable update checker
+  update-checker: true
+  # Enable bStats metrics
+  metrics: true
+  # Maximum undo/redo history per session
+  max-history: 50</code></pre>
+          </div>
+
+          <h3>Storage Configuration</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — config.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">storage:
+  # Storage type: YAML, JSON, SQLITE, MYSQL, MARIADB
+  type: "YAML"
+
+  # MySQL / MariaDB settings
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "ndeditor"
+    username: "root"
+    password: ""
+    table-prefix: "nde_"
+    pool:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      keepalive-time: 30000
+
+  # SQLite settings
+  sqlite:
+    file: "data.db"</code></pre>
+          </div>
+
+          <h3>Backup Configuration</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — config.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">backup:
+  # Enable automatic backups
+  auto-backup: true
+  # Auto-backup interval in minutes
+  interval: 60
+  # Maximum number of backups to keep
+  max-backups: 20
+  # Backup directory (relative to plugin folder)
+  directory: "backups"
+  # Compress backups
+  compress: true</code></pre>
+          </div>
+
+          <h3>Editor, Cache & Performance Settings</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — config.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml"># Editor Settings
+editor:
+  auto-save: 300          # Auto-save interval in seconds (0 = disabled)
+  confirm-delete: true    # Show confirmation for destructive actions
+  confirm-overwrite: true
+  default-menu-size: 27   # Default menu size for new menus
+  sounds: true            # Enable sound effects
+  particles: true         # Enable particle effects
+
+# Cache Settings
+cache:
+  enabled: true
+  expiry: 300             # Seconds
+  max-size: 100           # Max cached menus
+
+# Performance Settings
+performance:
+  async-io: true
+  inventory-update-interval: 2   # Ticks
+  max-concurrent-ops: 4
+
+# Dependency Management
+dependency:
+  auto-download: false
+  min-deluxemenus-version: "1.13.0"
+  auto-download-placeholderapi: false</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== editor.yml ===== -->
+        <section id="editor-yml">
+          <h2>editor.yml</h2>
+          <p>Controls editor behavior, default values for new menus/items, material categories, and the available action
+            and requirement types.</p>
+
+          <h3>Editor Behavior</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — editor.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">behavior:
+  lock-on-edit: true          # Lock slot when editing
+  auto-save-on-close: true    # Save on editor close
+  show-slot-numbers: true     # Show slot numbers in empty slots
+  allow-drag: true            # Allow drag operations
+  show-tooltips: true         # Show tooltips on editor buttons
+
+defaults:
+  menu:
+    title: "&aNew Menu"
+    size: 27
+    update-interval: 10
+    register-command: true
+  item:
+    material: "STONE"
+    amount: 1</code></pre>
+          </div>
+
+          <h3>Action Types</h3>
+          <p>These are the click action types available in the Action Editor GUI:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Prefix</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Player Command</td>
+                <td><code>[player]</code></td>
+                <td>Run a command as the player</td>
+              </tr>
+              <tr>
+                <td>Console Command</td>
+                <td><code>[console]</code></td>
+                <td>Run a command from the console</td>
+              </tr>
+              <tr>
+                <td>Open Menu</td>
+                <td><code>[openguimenu]</code></td>
+                <td>Open another DeluxeMenu</td>
+              </tr>
+              <tr>
+                <td>Close Menu</td>
+                <td><code>[close]</code></td>
+                <td>Close the current menu</td>
+              </tr>
+              <tr>
+                <td>Send Message</td>
+                <td><code>[message]</code></td>
+                <td>Send a chat message to the player</td>
+              </tr>
+              <tr>
+                <td>Broadcast</td>
+                <td><code>[broadcast]</code></td>
+                <td>Broadcast a message to all players</td>
+              </tr>
+              <tr>
+                <td>Play Sound</td>
+                <td><code>[sound]</code></td>
+                <td>Play a sound effect</td>
+              </tr>
+              <tr>
+                <td>Give Permission</td>
+                <td><code>[givepermission]</code></td>
+                <td>Grant a permission to the player</td>
+              </tr>
+              <tr>
+                <td>Take Permission</td>
+                <td><code>[takepermission]</code></td>
+                <td>Remove a permission from the player</td>
+              </tr>
+              <tr>
+                <td>Take Money</td>
+                <td><code>[takemoney]</code></td>
+                <td>Deduct money (requires Vault)</td>
+              </tr>
+              <tr>
+                <td>Give Money</td>
+                <td><code>[givemoney]</code></td>
+                <td>Give money (requires Vault)</td>
+              </tr>
+              <tr>
+                <td>Action Bar</td>
+                <td><code>[actionbar]</code></td>
+                <td>Display an action bar message</td>
+              </tr>
+              <tr>
+                <td>JSON Message</td>
+                <td><code>[json]</code></td>
+                <td>Send a raw JSON message</td>
+              </tr>
+              <tr>
+                <td>Refresh Menu</td>
+                <td><code>[refresh]</code></td>
+                <td>Refresh the current menu</td>
+              </tr>
+              <tr>
+                <td>Connect Server</td>
+                <td><code>[connect]</code></td>
+                <td>Send the player to another BungeeCord server</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Requirement Types</h3>
+          <p>These are the requirement types available in the Requirement Editor GUI:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Requirement</th>
+                <th>Type Key</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Has Permission</td>
+                <td><code>has permission</code></td>
+                <td>Check if the player has a permission node</td>
+              </tr>
+              <tr>
+                <td>Has Money</td>
+                <td><code>&gt;=</code></td>
+                <td>Check if the player has enough money</td>
+              </tr>
+              <tr>
+                <td>Has Item</td>
+                <td><code>has item</code></td>
+                <td>Check if the player has a specific item</td>
+              </tr>
+              <tr>
+                <td>String Equals</td>
+                <td><code>string equals</code></td>
+                <td>Compare two strings for equality</td>
+              </tr>
+              <tr>
+                <td>String Contains</td>
+                <td><code>string contains</code></td>
+                <td>Check if a string contains a substring</td>
+              </tr>
+              <tr>
+                <td>Regex Match</td>
+                <td><code>regex matches</code></td>
+                <td>Match against a regular expression</td>
+              </tr>
+              <tr>
+                <td>JavaScript</td>
+                <td><code>javascript</code></td>
+                <td>Evaluate a JavaScript expression</td>
+              </tr>
+              <tr>
+                <td>&gt;= Comparator</td>
+                <td><code>&gt;=</code></td>
+                <td>Greater than or equal numeric comparison</td>
+              </tr>
+              <tr>
+                <td>&lt;= Comparator</td>
+                <td><code>&lt;=</code></td>
+                <td>Less than or equal numeric comparison</td>
+              </tr>
+              <tr>
+                <td>== Comparator</td>
+                <td><code>==</code></td>
+                <td>Exact numeric equality</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ===== gui.yml ===== -->
+        <section id="gui-yml">
+          <h2>gui.yml</h2>
+          <p>Customize all GUI titles, filler items, navigation buttons, and layout slot positions. All titles support
+            <strong>MiniMessage</strong> format.
+          </p>
+
+          <h3>GUI Titles</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — gui.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">titles:
+  menu-list: "<gradient:#BD5AF5:#5CE1E6>Menu Manager</gradient>"
+  menu-editor: "<gradient:#BD5AF5:#5CE1E6>Editing:</gradient> <white>{menu}"
+  item-editor: "<gradient:#BD5AF5:#5CE1E6>Item Editor</gradient> <gray>— Slot {slot}"
+  material-selector: "<gradient:#BD5AF5:#5CE1E6>Material Selector</gradient> <gray>— Page {page}"
+  action-editor: "<gradient:#BD5AF5:#5CE1E6>Action Editor</gradient>"
+  requirement-editor: "<gradient:#BD5AF5:#5CE1E6>Requirement Editor</gradient>"
+  lore-editor: "<gradient:#BD5AF5:#5CE1E6>Lore Editor</gradient>"
+  enchant-editor: "<gradient:#BD5AF5:#5CE1E6>Enchant Editor</gradient>"
+  placeholder-browser: "<gradient:#BD5AF5:#5CE1E6>Placeholder Browser</gradient>"
+  confirmation: "<red><bold>Confirm Action</bold></red>"
+  backup-list: "<gradient:#BD5AF5:#5CE1E6>Backup Manager</gradient>"
+  create-menu: "<gradient:#BD5AF5:#5CE1E6>Create New Menu</gradient>"
+  head-selector: "<gradient:#BD5AF5:#5CE1E6>Head Selector</gradient>"
+  potion-editor: "<gradient:#BD5AF5:#5CE1E6>Potion Editor</gradient>"
+  flag-editor: "<gradient:#BD5AF5:#5CE1E6>Item Flags</gradient>"
+  search-results: "<gradient:#BD5AF5:#5CE1E6>Search Results</gradient>"</code></pre>
+          </div>
+
+          <h3>Common GUI Elements</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — gui.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">elements:
+  filler:
+    material: "BLACK_STAINED_GLASS_PANE"
+    name: " "
+  back-button:
+    material: "ARROW"
+    name: "<red>← Back"
+  next-page:
+    material: "ARROW"
+    name: "<green>Next Page →"
+  previous-page:
+    material: "ARROW"
+    name: "<green>← Previous Page"
+  close-button:
+    material: "BARRIER"
+    name: "<red>Close"
+  confirm-button:
+    material: "LIME_WOOL"
+    name: "<green><bold>Confirm"
+  cancel-button:
+    material: "RED_WOOL"
+    name: "<red><bold>Cancel"</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== sounds.yml ===== -->
+        <section id="sounds-yml">
+          <h2>sounds.yml</h2>
+          <p>Configure all sound effects used in the editor. Format: <code>SOUND_NAME:VOLUME:PITCH</code>. Set any
+            sound to <code>NONE</code> to disable it.</p>
+
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — sounds.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml"># UI Navigation sounds
+navigation:
+  click: "UI_BUTTON_CLICK:0.5:1.2"
+  open-menu: "BLOCK_CHEST_OPEN:0.5:1.0"
+  close-menu: "BLOCK_CHEST_CLOSE:0.5:1.0"
+  page-turn: "ITEM_BOOK_PAGE_TURN:0.5:1.0"
+  back: "UI_BUTTON_CLICK:0.3:0.8"
+
+# Editor sounds
+editor:
+  place-item: "BLOCK_NOTE_BLOCK_PLING:0.5:2.0"
+  remove-item: "BLOCK_NOTE_BLOCK_BASS:0.5:0.5"
+  move-item: "ENTITY_ITEM_PICKUP:0.3:1.5"
+  save: "ENTITY_PLAYER_LEVELUP:0.5:2.0"
+  undo: "BLOCK_NOTE_BLOCK_HARP:0.3:0.8"
+  redo: "BLOCK_NOTE_BLOCK_HARP:0.3:1.2"
+  select: "BLOCK_NOTE_BLOCK_BELL:0.3:1.5"
+
+# Feedback sounds
+feedback:
+  success: "ENTITY_PLAYER_LEVELUP:0.5:1.5"
+  error: "ENTITY_VILLAGER_NO:0.5:1.0"
+  warning: "BLOCK_NOTE_BLOCK_BASS:0.5:1.0"
+  confirm: "ENTITY_EXPERIENCE_ORB_PICKUP:0.5:1.0"
+  deny: "ENTITY_ENDERMAN_TELEPORT:0.3:0.5"
+  delete: "ENTITY_IRON_GOLEM_DEATH:0.3:0.5"
+
+# Special effect sounds
+effects:
+  create-menu: "ENTITY_PLAYER_LEVELUP:0.7:1.5"
+  delete-menu: "ENTITY_GENERIC_EXPLODE:0.3:1.5"
+  import: "BLOCK_BEACON_ACTIVATE:0.5:1.2"
+  export: "BLOCK_BEACON_DEACTIVATE:0.5:1.2"
+  backup: "BLOCK_ANVIL_USE:0.3:1.2"
+  restore: "BLOCK_BEACON_ACTIVATE:0.5:1.0"
+  preview: "BLOCK_END_PORTAL_SPAWN:0.3:1.5"</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== messages.yml ===== -->
+        <section id="messages-yml">
+          <h2>messages.yml</h2>
+          <p>All plugin messages are fully customizable. Supports <strong>MiniMessage</strong>, Legacy
+            (<code>&amp;</code>), and HEX (<code>#RRGGBB</code>) color formats. Available placeholders vary by
+            context.</p>
+
+          <h3>Message Categories</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Key Placeholders</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>general.*</code></td>
+                <td>Permission errors, reload status, unknown commands</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><code>menu.*</code></td>
+                <td>Create, edit, delete, clone, rename, list messages</td>
+                <td><code>{menu}</code>, <code>{source}</code>, <code>{target}</code>, <code>{old}</code>,
+                  <code>{new}</code>, <code>{count}</code>, <code>{items}</code>, <code>{size}</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>editor.*</code></td>
+                <td>Session management, item operations, undo/redo, save</td>
+                <td><code>{menu}</code>, <code>{slot}</code>, <code>{from}</code>, <code>{to}</code>,
+                  <code>{action}</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>io.*</code></td>
+                <td>Import/export success and failure messages</td>
+                <td><code>{count}</code>, <code>{menu}</code></td>
+              </tr>
+              <tr>
+                <td><code>backup.*</code></td>
+                <td>Backup create, restore, delete, list</td>
+                <td><code>{name}</code>, <code>{date}</code>, <code>{size}</code>, <code>{count}</code></td>
+              </tr>
+              <tr>
+                <td><code>dependency.*</code></td>
+                <td>DeluxeMenus and PlaceholderAPI detection status</td>
+                <td><code>{version}</code>, <code>{required}</code></td>
+              </tr>
+              <tr>
+                <td><code>preview.*</code></td>
+                <td>Preview start, stop, update</td>
+                <td><code>{menu}</code></td>
+              </tr>
+              <tr>
+                <td><code>confirm.*</code></td>
+                <td>Confirmation dialogs for destructive actions</td>
+                <td><code>{menu}</code></td>
+              </tr>
+              <tr>
+                <td><code>input.*</code></td>
+                <td>Chat input prompts for names, titles, commands, etc.</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Prefix</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">YAML — messages.yml</span>
+              <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </button>
+            </div>
+            <pre><code class="language-yaml">prefix: "<gradient:#BD5AF5:#5CE1E6><bold>NDEditor</bold></gradient> <dark_gray>»</dark_gray> "</code></pre>
+          </div>
+        </section>
+
+        <!-- ===== Storage ===== -->
+        <section id="storage">
+          <h2>Storage</h2>
+          <p>NDEditor supports five storage backends. Change the <code>storage.type</code> setting in
+            <code>config.yml</code>.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Best For</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>YAML</code></td>
+                <td>Small servers, easy editing</td>
+                <td>Default. Human-readable files in the plugin folder.</td>
+              </tr>
+              <tr>
+                <td><code>JSON</code></td>
+                <td>API integrations</td>
+                <td>Machine-friendly format.</td>
+              </tr>
+              <tr>
+                <td><code>SQLITE</code></td>
+                <td>Medium servers</td>
+                <td>Single-file database. No external setup needed.</td>
+              </tr>
+              <tr>
+                <td><code>MYSQL</code></td>
+                <td>Large networks</td>
+                <td>HikariCP connection pooling. Cross-server sharing.</td>
+              </tr>
+              <tr>
+                <td><code>MARIADB</code></td>
+                <td>Large networks (MariaDB)</td>
+                <td>Same config as MySQL, optimized driver.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ===== Backups ===== -->
+        <section id="backups">
+          <h2>Backups</h2>
+          <p>NDEditor includes a robust backup system to protect your menu configurations.</p>
+
+          <ul>
+            <li><strong>Automatic Backups</strong> — Scheduled at a configurable interval (default: 60 minutes)</li>
+            <li><strong>Manual Backups</strong> — Create on demand with <code>/ndeditor backup</code></li>
+            <li><strong>Compression</strong> — Backups are compressed as ZIP files when enabled</li>
+            <li><strong>Rotation</strong> — Oldest backups are automatically deleted when <code>max-backups</code> is
+              exceeded</li>
+            <li><strong>Restore</strong> — Restore any backup via command or the Backup Manager GUI</li>
+            <li><strong>Backup Manager GUI</strong> — Browse, restore, and delete backups from
+              <code>/ndeditor backups</code>
+            </li>
+          </ul>
+        </section>
+
+        <!-- ===== Dependencies ===== -->
+        <section id="dependencies">
+          <h2>Dependencies</h2>
+          <p>NDEditor integrates with several plugins for enhanced functionality.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Plugin</th>
+                <th>Required?</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>DeluxeMenus</strong></td>
+                <td>Soft dependency</td>
+                <td>The menu plugin that NDEditor edits. Core integration for menu registration, reload, and syncing.
+                  Minimum version: <code>1.13.0</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>PlaceholderAPI</strong></td>
+                <td>Optional</td>
+                <td>Enables placeholder resolution in menu previews and the Placeholder Browser GUI.</td>
+              </tr>
+              <tr>
+                <td><strong>Vault</strong></td>
+                <td>Optional</td>
+                <td>Required for economy-related actions (Give Money, Take Money).</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout callout-info">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            <div>
+              <strong>Auto-Download</strong>
+              <p>Set <code>dependency.auto-download: true</code> in <code>config.yml</code> to automatically download
+                DeluxeMenus if it's missing. A server restart is required after download.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Support ===== -->
+        <section id="support">
+          <h2>Support</h2>
+          <div
+            style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;text-align:center;margin:1.5rem 0;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-hover)"
+              stroke-width="1.5" style="margin-bottom:1rem;">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            <h3 style="margin-bottom:0.5rem;color:var(--text-primary);">Join Our Discord</h3>
+            <p style="color:var(--text-muted);margin-bottom:1.25rem;font-size:0.9rem;">Get help from our team, report
+              bugs, request features, and connect with the community.</p>
+            <a href="https://dsc.gg/neonstudios" class="btn btn-primary" target="_blank" rel="noopener">
+              dsc.gg/neonstudios
+            </a>
+          </div>
+        </section>
+
+        <!-- Page navigation -->
+        <div
+          style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+          <a href="../index.html" class="btn btn-secondary" style="font-size:0.875rem;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg>
+            All Documentation
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">NeonStudios</span>
+        <span class="footer-copy">&copy; 2024 NeonStudios. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html" class="footer-link">Home</a>
+        <a href="https://dsc.gg/neonstudios" class="footer-link" target="_blank" rel="noopener">
+          Discord
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Prism.js for syntax highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="../app.js"></script>
+  <script>
+    // NDEditor-specific search data override
+    (function () {
+      if (typeof window._searchDataOverride === 'undefined') {
+        window._searchDataOverride = [
+          { title: 'Introduction', section: 'Getting Started', href: '#introduction', keywords: 'introduction about ndeditor overview deluxemenus editor visual wysiwyg' },
+          { title: 'Features', section: 'Getting Started', href: '#features', keywords: 'features wysiwyg drag drop undo redo preview backup import export folia' },
+          { title: 'Installation', section: 'Getting Started', href: '#installation', keywords: 'install setup download jar plugins config dependencies' },
+          { title: 'Commands', section: 'Usage', href: '#commands', keywords: 'commands ndeditor create edit delete clone rename list preview import export backup restore reload debug help' },
+          { title: 'Permissions', section: 'Usage', href: '#permissions', keywords: 'permissions op admin editor create edit delete import export reload backup restore debug preview' },
+          { title: 'GUI Editors', section: 'Usage', href: '#gui-overview', keywords: 'gui editor menu manager item material lore action requirement enchantment flag potion head backup config file' },
+          { title: 'config.yml', section: 'Configuration', href: '#config-yml', keywords: 'config yml general storage mysql sqlite mariadb backup cache performance editor dependency' },
+          { title: 'editor.yml', section: 'Configuration', href: '#editor-yml', keywords: 'editor yml behavior defaults material categories action types requirement types' },
+          { title: 'gui.yml', section: 'Configuration', href: '#gui-yml', keywords: 'gui yml titles elements filler navigation buttons layout minimessage' },
+          { title: 'sounds.yml', section: 'Configuration', href: '#sounds-yml', keywords: 'sounds yml navigation editor feedback effects click save undo redo' },
+          { title: 'messages.yml', section: 'Configuration', href: '#messages-yml', keywords: 'messages yml prefix general menu editor io backup dependency preview confirm input minimessage' },
+          { title: 'Storage', section: 'Advanced', href: '#storage', keywords: 'storage yaml json sqlite mysql mariadb hikaricp database' },
+          { title: 'Backups', section: 'Advanced', href: '#backups', keywords: 'backups automatic manual compression rotation restore manager' },
+          { title: 'Dependencies', section: 'Advanced', href: '#dependencies', keywords: 'dependencies deluxemenus placeholderapi vault auto-download' },
+          { title: 'Support', section: 'Support', href: '#support', keywords: 'support help discord contact' },
+        ];
+      }
+    })();
+  </script>
+</body>
+
+</html>
